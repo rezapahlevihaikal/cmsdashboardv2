@@ -30,7 +30,7 @@
                           <option value="POPULIS">POPULIS</option>
                           <option value="Q1 Ide">Q1 Ide</option>
                           <option value="Q1 Revitalisasi">Q1 Revitalisasi</option>
-                      </select>
+                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Core Bisnis</label>
