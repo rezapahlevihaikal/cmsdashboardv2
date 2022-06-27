@@ -87,7 +87,7 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-muted ls-1 mb-1">HerStory</h6>
+                                <h6 class="text-uppercase text-muted ls-1 mb-1">Populis</h6>
                                 <h2 class="mb-0">Total Ranks</h2>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                            <canvas id="hs" class="chart-canvas"></canvas>
+                            <canvas id="pop" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>
@@ -105,15 +105,15 @@
                     <div class="card-header bg-transparent">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h6 class="text-uppercase text-muted ls-1 mb-1">Populis</h6>
-                                <h2 class="mb-0">Total orders</h2>
+                                <h6 class="text-uppercase text-muted ls-1 mb-1">HerStory</h6>
+                                <h2 class="mb-0">Total Ranks</h2>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <!-- Chart -->
                         <div class="chart">
-                            <canvas id="pop" class="chart-canvas"></canvas>
+                            <canvas id="hs" class="chart-canvas"></canvas>
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,12 @@ use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\DealsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventCategoryController;
+use App\Http\Controllers\PicController;
+use App\Http\Controllers\StatusEventController;
+use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\CoreBisnisController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -105,4 +111,44 @@ Route::prefix('contacts')->group(function(){
 
 Route::prefix('deals')->group(function(){
 	Route::get('/', [DealsController::class, 'index'])->name('deals');
+});
+
+Route::prefix('eventCategory')->group(function(){
+	Route::get('/', [EventCategoryController::class, 'index'])->name('eventCategory');
+	Route::post('store', [EventCategoryController::class, 'store'])->name('eventCategory.store');
+	Route::get('edit/{id}', [EventCategoryController::class, 'edit'])->name('eventCategory.edit');
+	Route::post('update/{id}', [EventCategoryController::class, 'update'])->name('eventCategory.update');
+	Route::post('delete/{id}', [EventCategoryController::class, 'destroy'])->name('eventCategory.destroy');
+});
+
+Route::prefix('picEvent')->group(function(){
+	Route::get('/', [PicController::class, 'index'])->name('picEvent');
+	Route::post('store', [PicController::class, 'store'])->name('picEvent.store');
+	Route::get('edit/{id}', [PicController::class, 'edit'])->name('picEvent.edit');
+	Route::post('update/{id}', [PicController::class, 'update'])->name('picEvent.update');
+	Route::post('delete/{id}', [PicController::class, 'destroy'])->name('picEvent.destroy');
+});
+
+Route::prefix('statusEvent')->group(function(){
+	Route::get('/', [StatusEventController::class, 'index'])->name('statusEvent');
+	Route::post('store', [StatusEventController::class, 'store'])->name('statusEvent.store');
+	Route::get('edit/{id}', [StatusEventController::class, 'edit'])->name('statusEvent.edit');
+	Route::post('update/{id}', [StatusEventController::class, 'update'])->name('statusEvent.update');
+	Route::post('delete/{id}', [StatusEventController::class, 'destroy'])->name('statusEvent.destroy');
+});
+
+Route::prefix('divisi')->group(function(){
+	Route::get('/', [DivisiController::class, 'index'])->name('divisi');
+	Route::post('store', [DivisiController::class, 'store'])->name('divisi.store');
+	Route::get('edit/{id}', [DivisiController::class, 'edit'])->name('divisi.edit');
+	Route::post('update/{id}', [DivisiController::class, 'update'])->name('divisi.update');
+	Route::post('delete/{id}', [DivisiController::class, 'destroy'])->name('divisi.destroy');
+});
+
+Route::prefix('coreBisnis')->group(function(){
+	Route::get('/', [CoreBisnisController::class, 'index'])->name('coreBisnis');
+	Route::post('store', [CoreBisnisController::class, 'store'])->name('coreBisnis.store');
+	Route::get('edit/{id}', [CoreBisnisController::class, 'edit'])->name('coreBisnis.edit');
+	Route::post('update/{id}', [CoreBisnisController::class, 'update'])->name('coreBisnis.update');
+	Route::post('delete/{id}', [CoreBisnisController::class, 'destroy'])->name('coreBisnis.destroy');
 });

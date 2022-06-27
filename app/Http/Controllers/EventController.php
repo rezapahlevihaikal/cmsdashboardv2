@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use App\Models\Event;
+use App\Models\EventCategory;
+use App\Models\PicEvent;
+use App\Models\StatusEvent;
+use App\Models\Performance;
 
 class EventController extends Controller
 {
@@ -21,10 +25,13 @@ class EventController extends Controller
     public function index()
     {
         //
-            $dataEvents = DB::table('cal_event')
-            ->select('*')
-            ->get();
-            return view('event.index', compact('dataEvents'));
+            
+            $dataKategori = EventCategory::get(['id', 'nama_kategori']);
+            $dataPicEvent = PicEvent::get(['id', 'nama_pic', 'divisi']);
+            $dataStatusEvent = StatusEvent::get(['id', 'nama_status']);
+            $dataEvents = Event::with(['cat', 'status'])->get();
+           
+            return view('event.index', compact('dataEvents', 'dataKategori', 'dataStatusEvent', 'dataPicEvent'));
     }
 
     /**
@@ -55,7 +62,10 @@ class EventController extends Controller
             'kategori' => $request->kategori,
             'pic' => $request->pic,
             'lastupdate' => Carbon::now(),
-            'status' => $request->status
+            'status' => $request->status,
+            'id_kategori' => $request->id_kategori,
+            'id_status' => $request->id_status,
+            'id_pic' => $request->id_pic
         ]);
 
         if($validator)
@@ -89,8 +99,11 @@ class EventController extends Controller
     public function edit($id)
     {
         //
+        $dataKategori = EventCategory::get(['id', 'nama_kategori']);
+        $dataPicEvent = PicEvent::get(['id', 'nama_pic']);
+        $dataStatusEvent = StatusEvent::get(['id', 'nama_status']);
         $dataEvents = Event::findOrFail($id);
-            return view('event.edit', compact('dataEvents')); 
+            return view('event.edit', compact('dataEvents','dataKategori', 'dataPicEvent', 'dataStatusEvent')); 
     }
 
     /**
@@ -110,7 +123,9 @@ class EventController extends Controller
                 'finish_time' => $request->finish_time,
                 'venue' => $request->venue,
                 'deskripsi' => $request->deskripsi,
-                'kategori' => $request->kategori,
+                'id_kategori' => $request->id_kategori,
+                'id_status' => $request->id_status,
+                'id_pic' => $request->id_pic,
                 'pic' => $request->pic,
                 'lastupdate' => Carbon::now(),
                 'status' => $request->status

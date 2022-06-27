@@ -38,27 +38,26 @@
                     <div class="row" style="padding-top: 10px">
                         <div class="col">
                             <label for="demo_overview_minimal">Kategori</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="kategori" value="{{$dataEvents->kategori}}" selected="{{$dataEvents->kategori}}">
-                                <option value="Award">Award</option>
-                                <option value="Seminar">Seminar</option>
-                                <option value="Client Services">Client Service</option>
-                                <option value="Talkshow">Talkshow</option>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_kategori" value="" selected="">
+                                @foreach ($dataKategori as $item)
+                                <option value="{{ $item->id }}" {{$dataEvents->id_kategori == $item->id  ? 'selected' : ''}}>{{ $item->nama_kategori}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col">
                             <label for="demo_overview_minimal">PIC</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="pic" value="{{$dataEvents->pic}}">
-                                <option value="WE">WE</option>
-                                <option value="HS">HS</option>
-                                <option value="Pop">POPULIS</option>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_pic" value="" selected="">
+                                @foreach ($dataPicEvent as $item)
+                                <option value="{{ $item->id }}" {{$dataEvents->id_pic == $item->id  ? 'selected' : ''}}>{{ $item->nama_pic}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="col">
                             <label for="demo_overview_minimal">Status</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="status" value="{{$dataEvents->status}}">
-                                <option value="Start">Start</option>
-                                <option value="Progress">Progress</option>
-                                <option value="Finish">Finish</option>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_status" value="" selected="">
+                                @foreach ($dataStatusEvent as $item)
+                                <option value="{{ $item->id }}" {{$dataEvents->id_status == $item->id  ? 'selected' : ''}}>{{ $item->nama_status}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div><br>

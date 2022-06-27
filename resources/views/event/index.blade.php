@@ -42,28 +42,27 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Kategori</label>
-                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="kategori" required>
-                            <option value="Award">Award</option>
-                            <option value="Seminar">Seminar</option>
-                            <option value="Client Services">Client Service</option>
-                            <option value="Talkshow">Talkshow</option>
+                        
+                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_kategori" required>
+                          @foreach ($dataKategori as $item)
+                              <option value="{{$item->id}}">{{$item->nama_kategori}}</option>    
+                          @endforeach
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">PIC</label>
-                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="pic" required>
-                            <option value="WE">WE</option>
-                            <option value="HS">HS</option>
-                            <option value="Pop">POPULIS</option>
+                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_pic" required>
+                          @foreach ($dataPicEvent as $item)
+                            <option value="{{$item->id}}">{{$item->nama_pic}} ({{$item->divisi}})</option>    
+                          @endforeach
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Status</label>
-                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="status">
-                            <option value="Start">Start</option>
-                            <option value="Progress">Progress</option>
-                            <option value="Finish">Finish</option>
-                            <option value="Tentatf">Tentatif</option>
+                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_status">
+                          @foreach ($dataStatusEvent as $item)
+                            <option value="{{$item->id}}">{{$item->nama_status}}</option>    
+                          @endforeach
                         </select>
                       </div>
                       <div class="modal-footer">
@@ -82,30 +81,30 @@
                     <table class="table table-bordered text-center" id="table-os">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">{{ __('Deksripsi')}}</th>
-                                <th scope="col">{{ __('PIC') }}</th>
-                                <th scope="col">{{ __('Tanggal') }}</th>
-                                <th scope="col">{{ __('Start Time') }}</th>
-                                <th scope="col">{{ __('Finish Time') }}</th>
-                                <th scope="col">{{ __('Venue') }}</th>
-                                <th scope="col">{{ __('Kategori') }}</th>
-                                <th scope="col">{{ __('Status') }}</th>
-                                <th scope="col">{{ __('Action') }}</th>
+                                <th>Deksripsi</th>
+                                {{-- <th>PIC</th> --}}
+                                <th>Tanggal</th>
+                                <th>Start Time</th>
+                                <th>Finish Time</th>
+                                <th>Venue</th>
+                                <th>Kategori</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($dataEvents as $item)
+                            @foreach($dataEvents as $row)
                               <tr style="text-align: center">
-                                <td><a href="{{route('events.edit', $item->id)}}" title="{{$item->deskripsi}}">{!! Str::limit($item->deskripsi, 60) !!}</a></td>
-                                <td>{{$item->pic}}</td>
-                                <td>{{$item->tanggal}}</td>
-                                <td>{{$item->start_time}}</td>
-                                <td>{{$item->finish_time}}</td>
-                                <td>{{$item->venue}}</td>
-                                <td>{{$item->kategori}}</td>
-                                <td>{{$item->status}}</td>
+                                <td><a href="{{route('events.edit', $row->id)}}" title="{{$row->deskripsi}}">{!! Str::limit($row->deskripsi, 60) !!}</a></td>
+                                {{-- <td>{{$row->pic[0]->nama_pic ?? null}}</td> --}}
+                                <td>{{$row->tanggal}}</td>
+                                <td>{{$row->start_time}}</td>
+                                <td>{{$row->finish_time}}</td>
+                                <td>{{$row->venue}}</td>
+                                <td>{{$row->cat->nama_kategori ?? null}}</td>
+                                <td>{{$row->status->nama_status ?? null}}</td>
                                 <td>
-                                  <form action="{{route('events.destroy', $item->id)}}" method="POST">
+                                  <form action="{{route('events.destroy', $row->id)}}" method="POST">
                                     @csrf
                                     @method('post')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>

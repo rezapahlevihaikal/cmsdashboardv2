@@ -145,6 +145,43 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-cogs"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Properties') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples3">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('eventCategory')}}">
+                                    {{ __('Kategori Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="picEvent">
+                                    {{ __('PIC Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusEvent">
+                                    {{ __('Status Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Divisi') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Core Bisnis') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
