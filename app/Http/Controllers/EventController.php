@@ -29,7 +29,7 @@ class EventController extends Controller
             $dataKategori = EventCategory::get(['id', 'nama_kategori']);
             $dataPicEvent = PicEvent::get(['id', 'nama_pic', 'divisi']);
             $dataStatusEvent = StatusEvent::get(['id', 'nama_status']);
-            $dataEvents = Event::with(['cat', 'status'])->get();
+            $dataEvents = Event::with(['cat','pic_name', 'stat2'])->get();
            
             return view('event.index', compact('dataEvents', 'dataKategori', 'dataStatusEvent', 'dataPicEvent'));
     }

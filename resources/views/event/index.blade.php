@@ -82,7 +82,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Deksripsi</th>
-                                {{-- <th>PIC</th> --}}
+                                <th>PIC</th>
                                 <th>Tanggal</th>
                                 <th>Start Time</th>
                                 <th>Finish Time</th>
@@ -96,13 +96,13 @@
                             @foreach($dataEvents as $row)
                               <tr style="text-align: center">
                                 <td><a href="{{route('events.edit', $row->id)}}" title="{{$row->deskripsi}}">{!! Str::limit($row->deskripsi, 60) !!}</a></td>
-                                {{-- <td>{{$row->pic[0]->nama_pic ?? null}}</td> --}}
+                                <td>{{$row->pic_name[0]->nama_pic ?? null}}</td>
                                 <td>{{$row->tanggal}}</td>
                                 <td>{{$row->start_time}}</td>
                                 <td>{{$row->finish_time}}</td>
                                 <td>{{$row->venue}}</td>
                                 <td>{{$row->cat->nama_kategori ?? null}}</td>
-                                <td>{{$row->status->nama_status ?? null}}</td>
+                                <td>{{$row->stat2->nama_status ?? null}}</td>
                                 <td>
                                   <form action="{{route('events.destroy', $row->id)}}" method="POST">
                                     @csrf

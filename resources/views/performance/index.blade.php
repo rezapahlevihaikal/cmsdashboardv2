@@ -117,6 +117,7 @@
                                     @method('post')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>
                                   </form>
+                                </td>
                               </tr>
                             @endforeach
                           </tbody>
@@ -132,7 +133,7 @@
     <script type="text/javascript">
        $(document).ready( function () {
             $('#table-os').DataTable({
-                scrollX:true,
+               
             });
         } );
     </script>

@@ -18,12 +18,12 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="{{route('eventCategory.store')}}" method="post" enctype="multipart/form-data">
+                  <form action="{{route('divisi.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                       <div class="form-group">
-                        <label for="formGroupExampleInput2">Nama Kategori</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" name="nama_kategori">
+                        <label for="formGroupExampleInput2">Nama Divisi</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" name="nama_divisi">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -41,18 +41,18 @@
                     <table class="table table-bordered text-center" id="table-os">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">{{ __('Nama Kateogri')}}</th>
+                                <th scope="col">{{ __('Nama PIC')}}</th>
                                 <th scope="col">{{ __('Created Date') }}</th>
                                 <th scope="col">{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($dataKategori as $item)
+                            @foreach($dataDivisi as $item)
                               <tr style="text-align: center">
-                                <td><a href="{{route('eventCategory.edit', $item->id)}}" title="">{{$item->nama_kategori}}</a></td>
+                                <td><a href="{{route('divisi.edit', $item->id)}}" title="">{{$item->nama_divisi}}</a></td>
                                 <td>{{$item->created_at}}</td>
                                 <td>
-                                  <form action="{{route('eventCategory.destroy',$item->id)}}" method="POST">
+                                  <form action="{{route('divisi.destroy',$item->id)}}" method="POST">
                                     @csrf
                                     @method('post')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>

@@ -32,12 +32,12 @@ class Event extends Model
         return $this->belongsTo('App\Models\EventCategory', 'id_kategori','id');
     }
 
-    public function pic()
+    public function pic_name()
     {
         return $this->hasMany('App\Models\PicEvent', 'id', 'id_pic', 'divisi');
     }
 
-    public function status()
+    public function stat2()
     {
         // return $this->belongsTo('App\Models\StatusEvent', 'id_status', 'id');
         return $this->belongsTo(StatusEvent::class, 'id_status', 'id');

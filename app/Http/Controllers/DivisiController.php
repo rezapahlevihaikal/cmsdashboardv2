@@ -20,7 +20,7 @@ class DivisiController extends Controller
     {
         //
         $dataDivisi = Divisi::all();
-        return view('divisi.index', compact('dataDivsi'));
+        return view('divisi.index', compact('dataDivisi'));
     }
 
     /**
@@ -77,7 +77,7 @@ class DivisiController extends Controller
     {
         //
         $dataDivisi = Divisi::findOrFail($id);
-        return redirect('divisi.edit', compact('dataDivisi'));
+        return view('divisi.edit', compact('dataDivisi'));
     }
 
     /**

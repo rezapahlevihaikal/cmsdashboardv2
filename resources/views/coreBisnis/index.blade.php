@@ -18,12 +18,16 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <form action="{{route('eventCategory.store')}}" method="post" enctype="multipart/form-data">
+                  <form action="{{route('coreBisnis.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                       <div class="form-group">
-                        <label for="formGroupExampleInput2">Nama Kategori</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" name="nama_kategori">
+                        <label for="formGroupExampleInput2">Nama Core Bisnis</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" name="nama_core_bisnis">
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2">Divisi</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="" name="divisi">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -38,21 +42,23 @@
 
             <div class="card bg-secondary-default shadow">
                 <div class="" style="padding:25px">
-                    <table class="table table-bordered text-center" id="table-os">
+                    <table class="table table-bordered text-center" id="table-core">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">{{ __('Nama Kateogri')}}</th>
+                                <th scope="col">{{ __('Nama Core Bisnis')}}</th>
+                                <th scope="col">{{ __('Divisi')}}</th>
                                 <th scope="col">{{ __('Created Date') }}</th>
                                 <th scope="col">{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($dataKategori as $item)
+                            @foreach($dataCoreBisnis as $item)
                               <tr style="text-align: center">
-                                <td><a href="{{route('eventCategory.edit', $item->id)}}" title="">{{$item->nama_kategori}}</a></td>
+                                <td><a href="{{route('coreBisnis.edit', $item->id)}}" title="">{{$item->nama_core_bisnis}}</a></td>
+                                <td>{{$item->divisi}}</td>
                                 <td>{{$item->created_at}}</td>
                                 <td>
-                                  <form action="{{route('eventCategory.destroy',$item->id)}}" method="POST">
+                                  <form action="{{route('divisi.destroy',$item->id)}}" method="POST">
                                     @csrf
                                     @method('post')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>
@@ -72,7 +78,7 @@
 @push('js')
     <script type="text/javascript">
        $(document).ready( function () {
-            $('#table-os').DataTable({
+            $('#table-core').DataTable({
                 
             });
         } );

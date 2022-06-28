@@ -42,12 +42,13 @@
 
             <div class="card bg-secondary-default shadow">
                 <div class="" style="padding:25px">
-                    <table class="table table-bordered text-center" id="table-os">
+                    <table class="table table-bordered text-center" id="table-pic">
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">{{ __('Nama PIC')}}</th>
                                 <th scope="col">{{ __('Divisi') }}</th>
                                 <th scope="col">{{ __('Created Date') }}</th>
+                                <th scope="col">{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,8 +78,8 @@
 @push('js')
     <script type="text/javascript">
        $(document).ready( function () {
-            $('#table-os').DataTable({
-                scrollX:true,
+            $('#table-pic').DataTable({
+                
             });
         } );
     </script>

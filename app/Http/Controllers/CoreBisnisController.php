@@ -97,6 +97,15 @@ class CoreBisnisController extends Controller
             'nama_core_bisnis' => $request->nama_core_bisnis,
             'divisi' => $request->divisi
         ]);
+
+        if($dataCoreBisnis)
+        {
+            return redirect()->route('coreBisnis')->with('success', 'Data Berhasil Di Update');
+        }
+        else
+        {
+            return redirect()->back()->with('success', 'Data Gagal Di Update');
+        }
     }
 
     /**
