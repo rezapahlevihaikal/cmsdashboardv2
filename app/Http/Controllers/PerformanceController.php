@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use App\Models\Performance;
+use App\Models\Divisi;
+use App\Models\CoreBisnis;
 
 class PerformanceController extends Controller
 {
@@ -21,10 +23,10 @@ class PerformanceController extends Controller
     public function index()
     {
         //
-            $dataPerformance = DB::table('performance')
-            ->select('*')
-            ->get();
-            return view('performance.index', compact('dataPerformance'));
+            $dataDivisi = Divisi::get(['id', 'nama_divisi']);
+            $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
+            $dataPerformance = Performance::with(['getDivisi', 'getCoreBisnis'])->get();
+            return view('performance.index', compact('dataPerformance', 'dataCoreBisnis', 'dataDivisi'));
     }
 
     /**
@@ -53,7 +55,9 @@ class PerformanceController extends Controller
             'value'=>$request->pencapaian/$request->target*100,
             'tanggal'=>$request->tanggal,
             'bulan'=>$request->bulan,
-            'tahun'=>$request->tahun
+            'tahun'=>$request->tahun,
+            'id_core_bisnis' => $request->id_core_bisnis,
+            'id_divisi' => $request->id_divisi
         ]);
         
         if($validator){
@@ -84,8 +88,10 @@ class PerformanceController extends Controller
     public function edit($id)
     {
         //
+        $dataDivisi = Divisi::get(['id', 'nama_divisi']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
         $dataPerformance = Performance::findOrFail($id);
-        return view('performance.edit', compact('dataPerformance'));
+        return view('performance.edit', compact('dataPerformance', 'dataCoreBisnis', 'dataDivisi'));
     }
 
     /**
@@ -104,10 +110,12 @@ class PerformanceController extends Controller
             'core_bisnis' => $request->core_bisnis,
             'target' => $request->target,
             'pencapaian' => $request->pencapaian,
-            'value' => $request->value,
+            'value'=>$request->pencapaian/$request->target*100,
             'tanggal' => $request->value,
             'bulan' => $request->bulan,
-            'tahun' => $request->tahun
+            'tahun' => $request->tahun,
+            'id_divisi' => $request->id_divisi,
+            'id_core_bisnis' => $request->id_core_bisnis
         ]);
 
         if($dataPerformance){

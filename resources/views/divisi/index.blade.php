@@ -41,7 +41,7 @@
                     <table class="table table-bordered text-center" id="table-os">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">{{ __('Nama PIC')}}</th>
+                                <th scope="col">{{ __('Nama Divisi')}}</th>
                                 <th scope="col">{{ __('Created Date') }}</th>
                                 <th scope="col">{{ __('Action') }}</th>
                             </tr>

@@ -23,32 +23,20 @@
                     @method('post')
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Divisi</label>
-                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="divisi" name="divisi" value="" selected="">
-                          <option value="">Pilih Divisi</option>
-                          <option value="WE">WE</option>
-                          <option value="HS">HS</option>
-                          <option value="POPULIS">POPULIS</option>
-                          <option value="Q1 Ide">Q1 Ide</option>
-                          <option value="Q1 Revitalisasi">Q1 Revitalisasi</option>
+                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="divisi" name="id_divisi" value="" selected="">
+                          <option value="">PILIH DIVISI</option>
+                          @foreach ($dataDivisi as $item)
+                              <option value="{{$item->id}}">{{$item->nama_divisi}}</option>    
+                          @endforeach
                         </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Core Bisnis</label>
-                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="core_bisnis" name="core_bisnis" value="" selected="">
-                          <option value="">Pilih Core Bisnis</option>
-                          <option value="Iklan WE">Iklan WE</option>
-                          <option value="Award WE">Award WE</option>
-                          <option value="Seminar Banking">Seminar Banking</option>
-                          <option value="Programatic WE">Programatic WE</option>
-                          <option value="Youtube WE">Youtube WE</option>
-                          <option value="WEA">WEA</option>
-                          <option value="Iklan HS">Iklan HS</option>
-                          <option value="Award HS">Award HS</option>
-                          <option value="Seminar HS">Seminar HS</option>
-                          <option value="Programatic HS">Programatic HS</option>
-                          <option value="Programatic Populis">Programatic Populis</option>
-                          <option value="Q1 Revitalisasi">Q1 Revitalisasi</option>
-                          <option value="Q1 Ide">Q1 Ide</option>
+                        <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="core_bisnis" name="id_core_bisnis" value="" selected="">
+                          <option value="">PILIH CORE BISNIS</option>
+                          @foreach ($dataCoreBisnis as $item)
+                              <option value="{{$item->id}}">{{$item->nama_core_bisnis}} ({{$item->divisi}})</option>    
+                          @endforeach
                       </select>
                       </div>
                       <div class="form-group">
@@ -104,8 +92,8 @@
                         <tbody>
                             @foreach($dataPerformance as $item)
                               <tr style="text-align: center">
-                                <td><a href="{{route('performance.edit', $item->id)}}">{{$item->divisi}}</a></td>
-                                <td>{{$item->core_bisnis}}</td>
+                                <td><a href="{{route('performance.edit', $item->id)}}">{{$item->getDivisi->nama_divisi ?? null}}</a></td>
+                                <td>{{$item->getCoreBisnis->nama_core_bisnis ?? null}}</td>
                                 <td>Rp {{number_format($item->target)}}</td>
                                 <td>Rp {{number_format($item->pencapaian)}}</td>
                                 <td>{{$item->value}}%</td>
