@@ -121,7 +121,7 @@
     <script type="text/javascript">
        $(document).ready( function () {
             $('#table-os').DataTable({
-               
+               scrollX:true,
             });
         } );
     </script>
