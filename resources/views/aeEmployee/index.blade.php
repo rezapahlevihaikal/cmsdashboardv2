@@ -27,14 +27,16 @@
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Divisi</label>
                                 <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="divisi_id" required>
+                                    <option value="">PILIH DIVISI</option>
                                     @foreach ($dataDivisi as $item)
-                                    <option value="{{$item->id}}">{{$item->nama_divisi}}</option>    
+                                      <option value="{{$item->id}}">{{$item->nama_divisi}}</option>    
                                     @endforeach
                                 </select>
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Core Bisnis</label>
                                 <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="core_bisnis_id" required>
+                                    <option value="">PILIH CORE BISNIS</option>
                                     @foreach ($dataCoreBisnis as $item)
                                         <option value="{{$item->id}}">{{$item->nama_core_bisnis}} ({{$item->divisi}})</option>    
                                     @endforeach

@@ -42,8 +42,8 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Kategori</label>
-                        
                         <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_kategori" required>
+                          <option value="">PILIH KATEGORI</option>
                           @foreach ($dataKategori as $item)
                               <option value="{{$item->id}}">{{$item->nama_kategori}}</option>    
                           @endforeach
@@ -52,6 +52,7 @@
                       <div class="form-group">
                         <label for="formGroupExampleInput2">PIC</label>
                         <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_pic" required>
+                          <option value="">PILIH PIC</option>
                           @foreach ($dataPicEvent as $item)
                             <option value="{{$item->id}}">{{$item->nama_pic}} ({{$item->divisi}})</option>    
                           @endforeach
@@ -60,6 +61,7 @@
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Status</label>
                         <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_status">
+                          <option value="">PILIH STATUS</option>
                           @foreach ($dataStatusEvent as $item)
                             <option value="{{$item->id}}">{{$item->nama_status}}</option>    
                           @endforeach
