@@ -65,6 +65,14 @@
                           @endforeach
                         </select>
                       </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2">Cost</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="cost">
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput2">Revenue</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="revenue">
+                      </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="sybmit" class="btn btn-primary">Add Data</button>
@@ -89,6 +97,8 @@
                                 <th>Venue</th>
                                 <th>Kategori</th>
                                 <th>Status</th>
+                                <th>Cost</th>
+                                <th>Revenue</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -103,6 +113,8 @@
                                 <td>{{$row->venue}}</td>
                                 <td>{{$row->cat->nama_kategori ?? null}}</td>
                                 <td>{{$row->stat2->nama_status ?? null}}</td>
+                                <td>Rp {{number_format($row->cost)}}</td>
+                                <td>Rp {{number_format($row->revenue)}}</td>
                                 <td>
                                   <form action="{{route('events.destroy', $row->id)}}" method="POST">
                                     @csrf

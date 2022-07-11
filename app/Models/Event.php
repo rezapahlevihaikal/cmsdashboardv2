@@ -24,7 +24,9 @@ class Event extends Model
         'status',
         'id_kategori',
         'id_pic',
-        'id_status'
+        'id_status',
+        'cost',
+        'revenue'
     ];
 
     public function cat()

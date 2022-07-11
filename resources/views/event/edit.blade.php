@@ -60,7 +60,18 @@
                                 @endforeach
                             </select>
                         </div>
-                    </div><br>
+                    </div>
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col">
+                            <p>Cost</p>
+                            <input type="text" class="form-control" name="cost" value="{{$dataEvents->cost}}">
+                        </div>
+                        <div class="col">
+                            <p>Revenue</p>
+                            <input type="text" class="form-control" name="revenue" value="{{$dataEvents->revenue}}">
+                        </div>
+                    </div>
+                    <br>
                     <button class="btn btn-success" onclick="window.location='{{url('/events')}}'" type="reset">Back</button>
                     <button class="btn btn-primary" type="submit">Update Data</button>
                   </form>

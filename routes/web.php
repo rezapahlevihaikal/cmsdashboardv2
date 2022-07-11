@@ -18,6 +18,9 @@ use App\Http\Controllers\PicController;
 use App\Http\Controllers\StatusEventController;
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\CoreBisnisController;
+use App\Http\Controllers\AeEmployeeController;
+use App\Http\Controllers\AePerformanceController;
+use App\Http\Controllers\MeasurementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -152,3 +155,27 @@ Route::prefix('coreBisnis')->group(function(){
 	Route::post('update/{id}', [CoreBisnisController::class, 'update'])->name('coreBisnis.update');
 	Route::post('delete/{id}', [CoreBisnisController::class, 'destroy'])->name('coreBisnis.destroy');
 });
+
+Route::prefix('aeEmployee')->group(function(){
+	Route::get('/', [AeEmployeeController::class, 'index'])->name('aeEmployee');
+	Route::post('store', [AeEmployeeController::class, 'store'])->name('aeEmployee.store');
+	Route::get('edit/{id}', [AeEmployeeController::class, 'edit'])->name('aeEmployee.edit');
+	Route::post('update/{id}', [AeEmployeeController::class, 'update'])->name('aeEmployee.update');
+	Route::post('delete/{id}', [AeEmployeeController::class, 'destroy'])->name('aeEmployee.destroy');
+});
+
+Route::prefix('aePerformance')->group(function(){
+	Route::get('/', [AePerformanceController::class, 'index'])->name('aePerformance');
+	Route::post('store', [AePerformanceController::class, 'store'])->name('aePerformance.store');
+	Route::get('edit/{id}', [AePerformanceController::class, 'edit'])->name('aePerformance.edit');
+	Route::post('update/{id}', [AePerformanceController::class, 'update'])->name('aePerformance.update');
+	Route::post('delete/{id}', [AePerformanceController::class, 'destroy'])->name('aePerformance.destroy');
+});
+
+Route::prefix('measurement')->group(function(){
+	Route::get('/', [MeasurementController::class, 'index'])->name('measurement');
+	Route::post('store', [MeasurementController::class, 'store'])->name('measurement.store');
+	Route::get('edit/{id}', [MeasurementController::class, 'edit'])->name('measurement.edit');
+	Route::post('update/{id}', [MeasurementController::class, 'update'])->name('measurement.update');
+	Route::post('delete/{id}', [MeasurementController::class, 'destroy'])->name('measurement.destroy');
+});	

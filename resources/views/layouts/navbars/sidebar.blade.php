@@ -102,7 +102,32 @@
                         </ul>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-address-card" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="">{{ __('AE Data') }}</span>
+                    </a>
 
+                    <div class="collapse show" id="navbar-examples4">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('aeEmployee')}}">
+                                    {{ __('AE Employee') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('aePerformance')}}">
+                                    {{ __('AE Performance') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('measurement')}}">
+                                    {{ __('Master Pengukuran') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('events') }}">
                         <i class="fas fa-calendar-alt"></i> {{ __('Events') }}

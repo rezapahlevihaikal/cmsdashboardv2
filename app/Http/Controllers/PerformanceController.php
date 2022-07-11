@@ -23,6 +23,8 @@ class PerformanceController extends Controller
     public function index()
     {
         //
+        // $divisi = Divisi::get('id','name');
+        // $coreBisnis = CoreBisnis::where('id_divisi', $divisi->id)->get('name','id');
             $dataDivisi = Divisi::get(['id', 'nama_divisi']);
             $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
             $dataPerformance = Performance::with(['getDivisi', 'getCoreBisnis'])->get();

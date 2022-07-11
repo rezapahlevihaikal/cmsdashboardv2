@@ -65,7 +65,9 @@ class EventController extends Controller
             'status' => $request->status,
             'id_kategori' => $request->id_kategori,
             'id_status' => $request->id_status,
-            'id_pic' => $request->id_pic
+            'id_pic' => $request->id_pic,
+            'cost' => $request->cost,
+            'revenue' => $request->revenue
         ]);
 
         if($validator)
@@ -128,7 +130,9 @@ class EventController extends Controller
                 'id_pic' => $request->id_pic,
                 'pic' => $request->pic,
                 'lastupdate' => Carbon::now(),
-                'status' => $request->status
+                'status' => $request->status,
+                'cost' => $request->cost,
+                'revenue' => $request->revenue
             ]);
 
             if($dataEvents){
