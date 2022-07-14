@@ -32,6 +32,10 @@
                             </select>
                         </div>
                         <div class="col">
+                            <label for="demo_overview_minimal">Salary</label>
+                            <input type="text" class="form-control" id="" placeholder="" name="salary" value="{{$dataAeEmployee->salary}}">
+                        </div>
+                        <div class="col">
                             <label for="demo_overview_minimal">Hire Date</label>
                             <input type="date" class="form-control" id="" placeholder="" name="hiredate" value="{{$dataAeEmployee->hiredate}}">
                         </div>

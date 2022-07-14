@@ -70,9 +70,8 @@
                       <table id="table-os" class="table table-bordered text-center">
                         <thead class="thead-light">
                           <tr>
-                            <th scope="col">Masa Kerja</th>
-                            <th scope="col">Salary</th>
-                            <th scope="col">Target</th>
+                            <th scope="col">Masa Kerja (Bulan)</th>
+                            <th scope="col">Target (Kelipatan)</th>
                             <th scope="col">Core Bisnis</th>
                             <th scope="col">Action</th>
                           </tr>
@@ -81,8 +80,7 @@
                           @foreach($dataMeasurement as $item)
                             <tr style="text-align: center">
                               <td><a href="{{route('measurement.edit', $item->id)}}">{{$item->masa_kerja}}</a></td>
-                              <td>Rp {{number_format($item->salary)}}</td>
-                              <td>Rp {{number_format($item->target)}}</td>
+                              <td>{{$item->target}}</td>
                               <td>{{$item->getCoreBisnis->nama_core_bisnis ?? null}}</td>
                               <td>
                                 <form action="{{route('measurement.destroy', $item->id)}}" method="POST">

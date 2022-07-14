@@ -51,7 +51,8 @@ class AeEmployeeController extends Controller
             'name' => $request->name,
             'divisi_id' => $request->divisi_id,
             'core_bisnis_id' => $request->core_bisnis_id,
-            'hiredate' => $request->hiredate
+            'hiredate' => $request->hiredate,
+            'salary' => $request->salary
         ]);
 
         if($validator)
@@ -106,7 +107,8 @@ class AeEmployeeController extends Controller
             'name' => $request->name,
             'divisi_id' => $request->divisi_id,
             'core_bisnis_id' => $request->core_bisnis_id,
-            'hiredate' => $request->hiredate
+            'hiredate' => $request->hiredate,
+            'salary' => $request->salary
         ]);
 
         if ($dataAeEmployee) {

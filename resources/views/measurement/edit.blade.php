@@ -30,10 +30,6 @@
                     </div>
                     <div class="row" style="padding-top: 10px">
                         <div class="col">
-                            <label for="demo_overview_minimal">Salary</label>
-                            <input type="text" class="form-control" name="salary" value="{{$dataMeasurement->salary}}">
-                        </div>
-                        <div class="col">
                             <label for="demo_overview_minimal">Target</label>
                             <input type="text" class="form-control" name="target" value="{{$dataMeasurement->target}}">
                         </div>
@@ -43,7 +39,7 @@
                             <label for="demo_overview_minimal">Core Bisnis</label>
                             <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="id_core_bisnis" value="{{$dataMeasurement->id_core_bisnis}}" selected="">
                                 @foreach ($dataCoreBisnis as $item)
-                                    <option value="{{ $item->id }}" {{$dataMeasurement->id_core_bisnis == $item->id  ? 'selected' : ''}}>{{ $item->nama_core_bisnis}}</option>
+                                    <option value="{{ $item->id }}" {{$dataMeasurement->id_core_bisnis == $item->id  ? 'selected' : ''}}>{{ $item->nama_core_bisnis}} ({{ $item->divisi}})</option>
                                 @endforeach
                             </select>
                         </div>

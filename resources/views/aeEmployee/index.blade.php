@@ -43,6 +43,10 @@
                                 </select>
                           </div>
                           <div class="form-group">
+                            <label for="formGroupExampleInput2">Salary</label>
+                            <input type="text" class="form-control" id="" placeholder="" name="salary">
+                          </div>
+                          <div class="form-group">
                             <label for="formGroupExampleInput2">Hire Date</label>
                             <input type="date" class="form-control" id="" placeholder="" name="hiredate">
                           </div>
@@ -65,6 +69,7 @@
                             <th scope="col">Divisi</th>
                             <th scope="col">Core Bisnis</th>
                             <th scope="col">Hire Date</th>
+                            <th scope="col">Salary</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -75,6 +80,7 @@
                               <td>{{$item->getDivisi->nama_divisi ?? null}}</td>
                               <td>{{$item->getCoreBisnis->nama_core_bisnis ?? null}}</td>
                               <td>{{$item->hiredate}}</td>
+                              <td>Rp {{number_format($item->salary)}}</td>
                               <td>
                                 <form action="{{route('aeEmployee.destroy', $item->id)}}" method="POST">
                                   @csrf

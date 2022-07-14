@@ -47,7 +47,6 @@ class MeasurementController extends Controller
         //
         $dataMeasurement = Measurement::create([
             'masa_kerja' => $request->masa_kerja,
-            'salary' => $request->salary,
             'target' => $request->target,
             'id_core_bisnis' => $request->id_core_bisnis
         ]);
@@ -80,7 +79,7 @@ class MeasurementController extends Controller
     public function edit($id)
     {
         //
-        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $dataMeasurement = Measurement::findOrFail($id);
 
         return view('measurement.edit', compact('dataCoreBisnis', 'dataMeasurement'));
@@ -99,7 +98,6 @@ class MeasurementController extends Controller
         $dataMeasurement = Measurement::findOrFail($id);
         $dataMeasurement->update([
             'masa_kerja' => $request->masa_kerja,
-            'salary' => $request->salary,
             'target' => $request->target,
             'id_core_bisnis' => $request->id_core_bisnis
         ]);

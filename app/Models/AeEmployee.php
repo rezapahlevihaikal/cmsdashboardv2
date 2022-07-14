@@ -15,7 +15,8 @@ class AeEmployee extends Model
         'name',
         'divisi_id',
         'core_bisnis_id',
-        'hiredate'
+        'hiredate',
+        'salary'
     ];
 
     public function getDivisi()
