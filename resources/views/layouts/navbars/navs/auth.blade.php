@@ -9,14 +9,26 @@
         <ul class="navbar-nav align-items-center d-none d-md-flex">
             <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="media align-items-center">
-                        <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logowe.png">
-                        </span>
-                        <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                    @if(Auth::user()->role_user == 'adminwe')
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logowe.png">
+                            </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                            </div>
                         </div>
-                    </div>
+                    @elseif(Auth::user()->role_user == 'adminjprof')
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logojprof.png">
+                            </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                            </div>
+                        </div>
+                    @endif
+                    
                 </a>
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">

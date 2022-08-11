@@ -64,7 +64,7 @@
                             </a>
                         @elseif(Auth::user()->role_user == 'adminjprof')
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('argon') }}/img/brand/logojprof.png">
+                                <img src="{{ asset('argon') }}/img/brand/logojprof.png" style="">
                             </a>
                         @endif
                         
