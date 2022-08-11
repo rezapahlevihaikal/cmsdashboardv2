@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $wartaEkonomi = DB::table('web_rank')
+        if (Auth::user()->role_user == 'adminwe') {
+            $wartaEkonomi = DB::table('web_rank')
                             ->select('tanggal', 'we')
                             ->get();
 
@@ -66,6 +68,11 @@ class HomeController extends Controller
             ->with('rankHs',json_encode($rankHs,JSON_NUMERIC_CHECK))
             ->with('tanggalPop',json_encode($tanggalHs))
             ->with('rankPop',json_encode($rankPop,JSON_NUMERIC_CHECK));
+            
+        } elseif(Auth::user()->role_user == 'adminjprof') {
+            return view('dashboardJprof');
+        }
+        
     }
 
 

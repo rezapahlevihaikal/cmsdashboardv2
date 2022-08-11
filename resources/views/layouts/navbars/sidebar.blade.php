@@ -5,19 +5,35 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/WE.png" class="navbar-brand-img" alt="...">
-        </a>
+        @if(Auth::user()->role_user == 'adminwe')
+            <a class="navbar-brand pt-0" href="{{ route('home') }}">
+                <img src="{{ asset('argon') }}/img/brand/WE.png" class="navbar-brand-img" alt="...">
+            </a>
+        @elseif(Auth::user()->role_user == 'adminjprof')
+            <a class="navbar-brand pt-0" href="{{ route('home') }}">
+                <img src="{{ asset('argon') }}/img/brand/logojprof.png" class="navbar-brand-img" alt="..." style="">
+            </a>
+        @endif
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="media align-items-center">
-                        <span class="avatar avatar-sm rounded-circle">
-                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logowe.png">
-                        </span>
-                    </div>
-                </a>
+                @if(Auth::user()->role_user == 'adminwe')
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logowe.png">
+                            </span>
+                        </div>
+                    </a>
+                @elseif(Auth::user()->role_user == 'adminjprof')
+                    <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logojprof.png">
+                            </span>
+                        </div>
+                    </a>
+                @endif
                 <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
                     <div class=" dropdown-header noti-title">
                         <h6 class="text-overflow m-0">{{ __('Welcome!') }}</h6>
@@ -35,15 +51,23 @@
                 </div>
             </li>
         </ul>
+        
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
             <!-- Collapse header -->
             <div class="navbar-collapse-header d-md-none">
                 <div class="row">
                     <div class="col-6 collapse-brand">
-                        <a href="{{ route('home') }}">
-                            <img src="{{ asset('argon') }}/img/brand/WE.png">
-                        </a>
+                        @if(Auth::user()->role_user == 'adminwe')
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('argon') }}/img/brand/WE.png">
+                            </a>
+                        @elseif(Auth::user()->role_user == 'adminjprof')
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('argon') }}/img/brand/logojprof.png">
+                            </a>
+                        @endif
+                        
                     </div>
                     <div class="col-6 collapse-close">
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
@@ -64,7 +88,8 @@
                     </div>
                 </div>
             </form>
-            <!-- Navigation -->
+
+            @if (Auth::user()->role_user == 'adminwe')
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
@@ -208,6 +233,27 @@
                     </div>
                 </li>
             </ul>
+            @elseif(Auth::user()->role_user == 'adminjprof')
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('performanceJprof') }}">
+                        <i class="fas fa-tachometer-alt"></i> {{ __('Performance') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('coreBisnisJprof') }}">
+                        <i class="fas fa-calendar-alt"></i> {{ __('Core Bisnis') }}
+                    </a>
+                </li>
+            </ul>
+            @endif
+            <!-- Navigation -->
+            
         </div>
     </div>
 </nav>

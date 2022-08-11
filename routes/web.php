@@ -21,6 +21,8 @@ use App\Http\Controllers\CoreBisnisController;
 use App\Http\Controllers\AeEmployeeController;
 use App\Http\Controllers\AePerformanceController;
 use App\Http\Controllers\MeasurementController;
+use App\Http\Controllers\CoreBisnisJprofController;
+use App\Http\Controllers\PerformanceJprofController;
 
 /*
 |--------------------------------------------------------------------------
@@ -178,4 +180,20 @@ Route::prefix('measurement')->group(function(){
 	Route::get('edit/{id}', [MeasurementController::class, 'edit'])->name('measurement.edit');
 	Route::post('update/{id}', [MeasurementController::class, 'update'])->name('measurement.update');
 	Route::post('delete/{id}', [MeasurementController::class, 'destroy'])->name('measurement.destroy');
-});	
+});
+
+Route::prefix('coreBisnisJprof')->group(function(){
+	Route::get('/', [CoreBisnisJprofController::class, 'index'])->name('coreBisnisJprof');
+	Route::post('store', [CoreBisnisJprofController::class, 'store'])->name('coreBisnisJprof.store');
+	Route::get('edit/{id}', [CoreBisnisJprofController::class, 'edit'])->name('coreBisnisJprof.edit');
+	Route::post('update/{id}', [CoreBisnisJprofController::class, 'update'])->name('coreBisnisJprof.update');
+	Route::post('delete/{id}', [CoreBisnisJprofController::class, 'destroy'])->name('coreBisnisJprof.destroy');
+});
+
+Route::prefix('performanceJprof')->group(function(){
+	Route::get('/', [PerformanceJprofController::class, 'index'])->name('performanceJprof');
+	Route::post('store', [PerformanceJprofController::class, 'store'])->name('performanceJprof.store');
+	Route::get('edit/{id}', [PerformanceJprofController::class, 'edit'])->name('performanceJprof.edit');
+	Route::post('update/{id}', [PerformanceJprofController::class, 'update'])->name('performanceJprof.update');
+	Route::post('delete/{id}', [PerformanceJprofController::class, 'destroy'])->name('performanceJprof.destroy');
+});
