@@ -45,7 +45,8 @@ class PerformanceJprofController extends Controller
     public function store(Request $request)
     {
         //
-        $month = Carbon::now()->format('F');
+        // $month = Carbon::now()->format('m');
+        $month = Carbon::now()->month;
         $year = Carbon::now()->format('Y');
 
         $dataPerformance = PerformanceJprof::create([
