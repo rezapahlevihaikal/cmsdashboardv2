@@ -71,7 +71,7 @@
                         <tbody>
                           @foreach($dataAePerformance as $item)
                             <tr style="text-align: center">
-                              <td><a href="{{route('aePerformance.edit', $item->id)}}">{{$item->getEmployee->name}}</a></td>
+                              <td><a href="{{route('aePerformance.edit', $item->id)}}">{{$item->getEmployee->name ?? null}}</a></td>
                               <td>Rp {{number_format($item->target)}}</td>
                               <td>Rp {{number_format($item->pencapaian)}}</td>
                               <td>{{$item->bulan}}</td>
