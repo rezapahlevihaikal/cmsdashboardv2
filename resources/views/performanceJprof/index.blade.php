@@ -30,6 +30,10 @@
                         <input type="text" class="form-control" id="" placeholder="" name="instansi">
                       </div>
                       <div class="form-group">
+                        <label for="formGroupExampleInput2">Target</label>
+                        <input type="text" class="form-control" id="" placeholder="" name="target">
+                      </div>
+                      <div class="form-group">
                         <label for="formGroupExampleInput2">Pencapaian</label>
                         <input type="text" class="form-control" id="" placeholder="" name="pencapaian">
                       </div>
@@ -60,6 +64,7 @@
                             <tr>
                                 <th scope="col">{{ __('Produk')}}</th>
                                 <th scope="col">{{ __('Instansi') }}</th>
+                                <th scope="col">{{ __('Target') }}</th>
                                 <th scope="col">{{ __('Pencapaian') }}</th>
                                 <th scope="col">{{ __('Core Bisnis') }}</th>
                                 <th scope="col">{{ __('Bulan/Tahun') }}</th>
@@ -71,6 +76,7 @@
                               <tr style="">
                                 <td><a href="{{route('performanceJprof.edit', $item->id)}}">{!! Str::limit($item->produk, 60) !!}</a></td>
                                 <td>{{$item->instansi}}</td>
+                                <td>Rp {{number_format($item->target)}}</td>
                                 <td>Rp {{number_format($item->pencapaian)}}</td>
                                 <td>{{$item->getCoreBisnis->nama_core_jprof ?? null}}</td>
                                 <td>{{$item->bulan}} <br> {{$item->tahun}} </td>

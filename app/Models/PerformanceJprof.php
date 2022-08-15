@@ -15,6 +15,7 @@ class PerformanceJprof extends Model
     [
         'produk',
         'instansi',
+        'target',
         'pencapaian',
         'id_core_bisnis',
         'bulan',

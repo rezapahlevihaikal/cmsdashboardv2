@@ -52,6 +52,7 @@ class PerformanceJprofController extends Controller
         $dataPerformance = PerformanceJprof::create([
             'produk' => $request->produk,
             'instansi' => $request->instansi,
+            'target' => $request->target,
             'pencapaian' => $request->pencapaian,
             'id_core_bisnis' => $request->id_core_bisnis,
             'bulan' => $month,
@@ -85,7 +86,7 @@ class PerformanceJprofController extends Controller
      */
     public function edit($id)
     {
-        $dataCoreBisnis = CoreBisnisJprof::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnisJprof::get(['id', 'nama_core_jprof']);
         $dataPerformance = PerformanceJprof::findOrFail($id);
 
         return view('performanceJprof.edit', compact('dataCoreBisnis', 'dataPerformance'));
@@ -104,6 +105,7 @@ class PerformanceJprofController extends Controller
         $dataPerformance->update([
             'produk' => $request->produk,
             'instansi' => $request->instansi,
+            'target' => $request->target,
             'pencapaian' => $request->pencapaian,
             'id_core_bisnis' => $request->id_core_bisnis,
         ]);
