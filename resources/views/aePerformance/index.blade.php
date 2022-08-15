@@ -65,7 +65,7 @@
                             <th scope="col">Pencapaian</th>
                             <th scope="col">Bulan</th>
                             <th scope="col">Tahun</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
