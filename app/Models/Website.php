@@ -17,6 +17,8 @@ class Website extends Model
         'hs', 
         'populis', 
         'konten_jatim',
+        'news_worthy',
+        'we_finance',
         'lastupdate',
         'we_tv', 
         'we_nilai',

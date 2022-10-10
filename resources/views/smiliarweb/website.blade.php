@@ -41,6 +41,14 @@
                             <input type="text" class="form-control" id="" placeholder="" name="konten_jatim">
                           </div>
                           <div class="form-group">
+                            <label for="formGroupExampleInput2">News Worthy</label>
+                            <input type="text" class="form-control" id="" placeholder="" name="news_worthy">
+                          </div>
+                          <div class="form-group">
+                            <label for="formGroupExampleInput2">WE Finance</label>
+                            <input type="text" class="form-control" id="" placeholder="" name="we_finance">
+                          </div>
+                          {{-- <div class="form-group">
                             <label for="formGroupExampleInput2">WE (Nilai)</label>
                             <input type="text" class="form-control" id="" placeholder="" name="we_nilai">
                           </div>
@@ -55,7 +63,7 @@
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Konten Jatim (Nilai)</label>
                             <input type="text" class="form-control" id="" placeholder="" name="konten_jatim_nilai">
-                          </div>
+                          </div> --}}
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="sybmit" class="btn btn-primary">Add Data</button>
