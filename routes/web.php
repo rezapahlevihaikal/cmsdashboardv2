@@ -23,6 +23,7 @@ use App\Http\Controllers\AePerformanceController;
 use App\Http\Controllers\MeasurementController;
 use App\Http\Controllers\CoreBisnisJprofController;
 use App\Http\Controllers\PerformanceJprofController;
+use App\Http\Controllers\FollowersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -196,4 +197,12 @@ Route::prefix('performanceJprof')->group(function(){
 	Route::get('edit/{id}', [PerformanceJprofController::class, 'edit'])->name('performanceJprof.edit');
 	Route::post('update/{id}', [PerformanceJprofController::class, 'update'])->name('performanceJprof.update');
 	Route::post('delete/{id}', [PerformanceJprofController::class, 'destroy'])->name('performanceJprof.destroy');
+});
+
+Route::prefix('followers')->group(function(){
+	Route::get('/', [FollowersController::class, 'index'])->name('followers');
+	Route::post('store', [FollowersController::class, 'store'])->name('followers.store');
+	Route::get('edit/{id}', [FollowersController::class, 'edit'])->name('followers.edit');
+	Route::post('update/{id}', [FollowersController::class, 'update'])->name('followers.update');
+	Route::post('delete/{id}', [FollowersController::class, 'destroy'])->name('followers.destroy');
 });

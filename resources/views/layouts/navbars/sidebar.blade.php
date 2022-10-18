@@ -128,6 +128,16 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('followers')}}">
+                        <i class="fas fa-thumbs-up"></i> {{ __('Followers') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-landmark"></i> {{ __('Rivality') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples4" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fas fa-address-card" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="">{{ __('AE Data') }}</span>
