@@ -133,7 +133,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{route('rivality')}}">
                         <i class="fas fa-landmark"></i> {{ __('Rivality') }}
                     </a>
                 </li>

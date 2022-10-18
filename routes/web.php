@@ -24,6 +24,7 @@ use App\Http\Controllers\MeasurementController;
 use App\Http\Controllers\CoreBisnisJprofController;
 use App\Http\Controllers\PerformanceJprofController;
 use App\Http\Controllers\FollowersController;
+use App\Http\Controllers\MasterRivalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -205,4 +206,12 @@ Route::prefix('followers')->group(function(){
 	Route::get('edit/{id}', [FollowersController::class, 'edit'])->name('followers.edit');
 	Route::post('update/{id}', [FollowersController::class, 'update'])->name('followers.update');
 	Route::post('delete/{id}', [FollowersController::class, 'destroy'])->name('followers.destroy');
+});
+
+Route::prefix('rivality')->group(function(){
+	Route::get('/', [MasterRivalController::class, 'index'])->name('rivality');
+	Route::post('store', [MasterRivalController::class, 'store'])->name('rivality.store');
+	Route::get('edit/{id}', [MasterRivalController::class, 'edit'])->name('rivality.edit');
+	Route::post('update/{id}', [MasterRivalController::class, 'update'])->name('rivality.update');
+	Route::post('delete/{id}', [MasterRivalController::class, 'destroy'])->name('rivality.destroy');
 });
