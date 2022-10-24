@@ -25,6 +25,8 @@ use App\Http\Controllers\CoreBisnisJprofController;
 use App\Http\Controllers\PerformanceJprofController;
 use App\Http\Controllers\FollowersController;
 use App\Http\Controllers\MasterRivalController;
+use App\Http\Controllers\AdsDepositController;
+use App\Http\Controllers\ProgrammaticsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -214,4 +216,20 @@ Route::prefix('rivality')->group(function(){
 	Route::get('edit/{id}', [MasterRivalController::class, 'edit'])->name('rivality.edit');
 	Route::post('update/{id}', [MasterRivalController::class, 'update'])->name('rivality.update');
 	Route::post('delete/{id}', [MasterRivalController::class, 'destroy'])->name('rivality.destroy');
+});
+
+Route::prefix('ads')->group(function(){
+	Route::get('/', [AdsDepositController::class, 'index'])->name('ads');
+	Route::post('store', [AdsDepositController::class, 'store'])->name('ads.store');
+	Route::get('edit/{id}', [AdsDepositController::class, 'edit'])->name('ads.edit');
+	Route::post('update/{id}', [AdsDepositController::class, 'update'])->name('ads.update');
+	Route::post('delete/{id}', [AdsDepositController::class, 'destroy'])->name('ads.destroy');
+});
+
+Route::prefix('programmatics')->group(function(){
+	Route::get('/', [ProgrammaticsController::class, 'index'])->name('programmatics');
+	Route::post('store', [ProgrammaticsController::class, 'store'])->name('programmatics.store');
+	Route::get('edit/{id}', [ProgrammaticsController::class, 'edit'])->name('programmatics.edit');
+	Route::post('update/{id}', [ProgrammaticsController::class, 'update'])->name('programmatics.update');
+	Route::post('delete/{id}', [ProgrammaticsController::class, 'destroy'])->name('programmatics.destroy');
 });

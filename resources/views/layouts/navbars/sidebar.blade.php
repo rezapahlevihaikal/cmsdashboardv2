@@ -128,6 +128,27 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-chart-line" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Programmatics') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ads')}}">
+                                    {{ __('Ads Deposit') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('programmatics')}}">
+                                    {{ __('Data Programmatics') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('followers')}}">
                         <i class="fas fa-thumbs-up"></i> {{ __('Followers') }}
                     </a>
