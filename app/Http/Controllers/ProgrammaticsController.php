@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Programmatics;
 use App\Models\MasterWebsite;
+use App\Models\MasterPartner;
 use Illuminate\Http\Request;
 
 class ProgrammaticsController extends Controller
@@ -20,9 +21,10 @@ class ProgrammaticsController extends Controller
     public function index()
     {
         $dataWebsite = MasterWebsite::get(['id','website_name']);
-        $dataProg = Programmatics::with(['getWebsite'])->get();
+        $dataPartner = MasterPartner::get(['id', 'name']);
+        $dataProg = Programmatics::with(['getWebsite', 'getPartner'])->get();
 
-        return view('prog.index', compact('dataWebsite', 'dataProg'));
+        return view('prog.index', compact('dataWebsite', 'dataProg', 'dataPartner'));
     }
 
     /**
@@ -51,7 +53,8 @@ class ProgrammaticsController extends Controller
             'ctr' => $request->ctr,
             'cpm' => $request->cpm,
             'laba' => $request->laba,
-            'website' => $request->website
+            'website' => $request->website,
+            'partner_id' => $request->partner_id
         ]);
 
         if($dataProg)
@@ -84,9 +87,10 @@ class ProgrammaticsController extends Controller
     public function edit($id)
     {
         $dataWebsite = MasterWebsite::get(['id', 'website_name']);
+        $dataPartner = MasterPartner::get(['id', 'name']);
         $dataProg = Programmatics::find($id);
 
-        return view('prog.edit', compact('dataWebsite', 'dataProg'));
+        return view('prog.edit', compact('dataWebsite', 'dataProg', 'dataPartner'));
     }
 
     /**
@@ -107,7 +111,8 @@ class ProgrammaticsController extends Controller
             'ctr' => $request->ctr,
             'cpm' => $request->cpm,
             'laba' => $request->laba,
-            'website' => $request->website
+            'website' => $request->website,
+            'partner_id' => $request->partner_id
         ]);
 
         if($dataProg)

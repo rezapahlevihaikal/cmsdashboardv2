@@ -10,6 +10,12 @@
                     @method('POST')
                     <div class="row">
                         <div class="col">
+                            <label for="demo_overview_minimal">Tanggal</label>
+                            <input type="date" class="form-control" id="dataadd" placeholder="" name="dataadd" value="{{$dataProg->dataadd}}">
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col">
                             <label for="demo_overview_minimal">Website</label>
                             <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" value="" selected="">
                                 @foreach ($dataWebsite as $item)
@@ -18,8 +24,12 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label for="demo_overview_minimal">Tanggal</label>
-                            <input type="date" class="form-control" id="dataadd" placeholder="" name="dataadd" value="{{$dataProg->dataadd}}">
+                            <label for="demo_overview_minimal">Partner</label>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="partner_id" value="" selected="">
+                                @foreach ($dataPartner as $item)
+                                    <option value="{{ $item->id }}" {{$dataProg->partner_id == $item->id  ? 'selected' : ''}}>{{ $item->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 10px">

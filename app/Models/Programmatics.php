@@ -19,12 +19,18 @@ class Programmatics extends Model
         'cpc',
         'cpm',
         'laba',
-        'website'
+        'website',
+        'partner_id'
     ];
 
     public function getWebsite()
     {
         return $this->belongsTo('App\Models\MasterWebsite', 'website', 'id');
+    }
+
+    public function getPartner()
+    {
+        return $this->belongsTo('App\Models\MasterPartner', 'partner_id', 'id');
     }
 
     public $timestamps = false;

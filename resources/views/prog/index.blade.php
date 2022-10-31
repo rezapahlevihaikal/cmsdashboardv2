@@ -34,6 +34,15 @@
                                 </select>
                           </div>
                           <div class="form-group">
+                            <label for="formGroupExampleInput2">Partner</label>
+                                <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="partner_id" required>
+                                    <option value="">PILIH PARTNER</option>
+                                    @foreach ($dataPartner as $item)
+                                      <option value="{{$item->id}}">{{$item->name}}</option>    
+                                    @endforeach
+                                </select>
+                          </div>
+                          <div class="form-group">
                             <label for="formGroupExampleInput2">Views</label>
                             <input type="text" class="form-control" id="views" placeholder="" name="views">
                           </div>
@@ -86,7 +95,7 @@
                           @foreach($dataProg as $item)
                             <tr style="text-align: center">
                               <td>
-                                {{$item->getWebsite->website_name ?? kosong}}
+                                {{$item->getWebsite->website_name ?? "kosong"}} ({{$item->getPartner->name ?? "kosong"}})
                                 <br>
                                 {{$item->dataadd}}
                               </td>
