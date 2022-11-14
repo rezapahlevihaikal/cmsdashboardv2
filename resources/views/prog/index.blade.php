@@ -43,6 +43,18 @@
                                 </select>
                           </div>
                           <div class="form-group">
+                            <label for="formGroupExampleInput2">Matchedrequests</label>
+                            <input type="text" class="form-control" id="matchedrequests" placeholder="" name="matchedrequests">
+                          </div>
+                          <div class="form-group">
+                            <label for="formGroupExampleInput2">Impressions</label>
+                            <input type="text" class="form-control" id="impressions" placeholder="" name="impressions">
+                          </div>
+                          <div class="form-group">
+                            <label for="formGroupExampleInput2">Fillrate</label>
+                            <input type="text" class="form-control" id="fillrate" placeholder="" name="fillrate">
+                          </div>
+                          <div class="form-group">
                             <label for="formGroupExampleInput2">Views</label>
                             <input type="text" class="form-control" id="views" placeholder="" name="views">
                           </div>
@@ -82,6 +94,9 @@
                         <thead class="thead-light">
                           <tr>
                             <th scope="col">Website</th>
+                            <th scope="col">Matchedrequests</th>
+                            <th scope="col">Impressions</th>
+                            <th scope="col">Fillrate</th>
                             <th scope="col">Views</th>
                             <th scope="col">Clicks</th>
                             <th scope="col">CTR</th>
@@ -99,6 +114,9 @@
                                 <br>
                                 {{$item->dataadd}}
                               </td>
+                              <td>{{$item->matchedrequests}}</td>
+                              <td>{{$item->impressions}}</td>
+                              <td>{{$item->fillrate}}</td>
                               <td>
                                 {{$item->views}}
                               </td>
@@ -133,7 +151,9 @@
 @push('js')
     <script type="text/javascript">
       $(document).ready( function () {
-            $('#table-os').DataTable({});
+            $('#table-os').DataTable({
+              scrollX:true,
+            });
             $('#ctr').mask('00.000', {reverse: true});
             $('#cpc').mask('00.000', {reverse: true});
             $('#cpm').mask('00.000', {reverse: true});

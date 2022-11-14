@@ -34,6 +34,20 @@
                     </div>
                     <div class="row" style="padding-top: 10px">
                         <div class="col">
+                            <label for="formGroupExampleInput2">Matchedrequests</label>
+                            <input type="text" class="form-control" id="matchedrequests" placeholder="" name="matchedrequests" value="{{$dataProg->matchedrequests}}">
+                          </div>
+                          <div class="col">
+                            <label for="formGroupExampleInput2">Impressions</label>
+                            <input type="text" class="form-control" id="impressions" placeholder="" name="impressions" value="{{$dataProg->impressions}}">
+                          </div>
+                          <div class="col">
+                            <label for="formGroupExampleInput2">Fillrate</label>
+                            <input type="text" class="form-control" id="fillrate" placeholder="" name="fillrate" value="{{$dataProg->fillrate}}">
+                          </div>
+                    </div>
+                    <div class="row" style="padding-top: 10px">
+                        <div class="col">
                             <label for="demo_overview_minimal">Views</label>
                             <input type="text" class="form-control" id="views" placeholder="" name="views" value="{{$dataProg->views}}">
                         </div>

@@ -13,6 +13,9 @@ class Programmatics extends Model
 
     protected $fillable = [
         'dataadd',
+        'matchedrequests',
+        'impressions',
+        'fillrate',
         'views',
         'clicks',
         'ctr',

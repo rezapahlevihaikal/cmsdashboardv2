@@ -47,6 +47,9 @@ class ProgrammaticsController extends Controller
     {
         $dataProg = Programmatics::create([
             'dataadd' => $request->dataadd,
+            'matchedrequests' => $request->matchedrequests,
+            'impressions' => $request->impressions,
+            'fillrate' => $request->fillrate,
             'views' => $request->views,
             'clicks' => $request->clicks,
             'cpc' => $request->cpc,
@@ -105,6 +108,9 @@ class ProgrammaticsController extends Controller
         $dataProg = Programmatics::find($id);
         $dataProg->update([
             'dataadd' => $request->dataadd,
+            'matchedrequests' => $request->matchedrequests,
+            'impressions' => $request->impressions,
+            'fillrate' => $request->fillrate,
             'views' => $request->views,
             'clicks' => $request->clicks,
             'cpc' => $request->cpc,
