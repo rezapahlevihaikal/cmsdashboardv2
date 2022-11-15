@@ -27,6 +27,7 @@ use App\Http\Controllers\FollowersController;
 use App\Http\Controllers\MasterRivalController;
 use App\Http\Controllers\AdsDepositController;
 use App\Http\Controllers\ProgrammaticsController;
+use App\Http\Controllers\AdsSlotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -224,6 +225,14 @@ Route::prefix('ads')->group(function(){
 	Route::get('edit/{id}', [AdsDepositController::class, 'edit'])->name('ads.edit');
 	Route::post('update/{id}', [AdsDepositController::class, 'update'])->name('ads.update');
 	Route::post('delete/{id}', [AdsDepositController::class, 'destroy'])->name('ads.destroy');
+});
+
+Route::prefix('ads_slot')->group(function(){
+	Route::get('/', [AdsSlotController::class, 'index'])->name('ads_slot');
+	Route::post('store', [AdsSlotController::class, 'store'])->name('ads_slot.store');
+	Route::get('edit/{id}', [AdsSlotController::class, 'edit'])->name('ads_slot.edit');
+	Route::post('update/{id}', [AdsSlotController::class, 'update'])->name('ads_slot.update');
+	Route::post('delete/{id}', [AdsSlotController::class, 'destroy'])->name('ads_slot.destroy');
 });
 
 Route::prefix('programmatics')->group(function(){

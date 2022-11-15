@@ -141,6 +141,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('ads_slot')}}">
+                                    {{ __('Ads Slot') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('programmatics')}}">
                                     {{ __('Data Programmatics') }}
                                 </a>
