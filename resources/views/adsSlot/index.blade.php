@@ -22,7 +22,7 @@
                         @csrf                          
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Website</label>
-                                <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                                <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website_id" required>
                                     <option value="">PILIH WEBSITE</option>
                                     @foreach ($dataWebsite as $item)
                                       <option value="{{$item->id}}">{{$item->website_name}}</option>    
@@ -40,7 +40,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile in Article 1</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_in_article1" required>
                                     <option value="">MOBILE IN ARTICLE 1</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -49,7 +49,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile in Article 2</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_in_article2" required>
                                     <option value="">MOBILE IN ARTICLE 2</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -58,7 +58,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile in Article 3</label>
-                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_in_article3" required>
                                 <option value="">MOBILE IN ARTICLE 3</option>
                                 @foreach ($dataPartner as $item)
                                   <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -67,7 +67,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile Sticky Bottom</label>
-                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_sticky_bottom" required>
                                     <option value="">MOBILE STICKY BOTTOM</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -76,7 +76,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile Image Banner</label>
-                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_in_imagebanner" required>
                                     <option value="">MOBILE IMAGE BANNER</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -85,7 +85,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile Native Ad</label>
-                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_nativead" required>
                                     <option value="">MOBILE NATIVE AD</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -94,7 +94,7 @@
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Mobile Video</label>
-                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website" required>
+                           <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="mob_video" required>
                                     <option value="">MOBILE VIDEO</option>
                                     @foreach ($dataPartner as $item)
                                       <option value="{{$item->id}}">{{$item->name}}</option>    
@@ -132,14 +132,14 @@
                           @foreach($dataAdsSlot as $item)
                             <tr style="text-align: center">
                               <td>{{$item->getWebsite->website_name ?? kosong}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
-                              <td>{{$item->getPartner->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobTop->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobInArt1->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobInArt2->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobInArt3->name ?? 'kosong'}}</td>
+                              <td>{{$item->getStickBot->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobImage->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobNative->name ?? 'kosong'}}</td>
+                              <td>{{$item->getMobVid->name ?? 'kosong'}}</td>
                               <td>
                                 <form action="{{route('ads_slot.destroy', $item->id)}}" method="POST">
                                     <a href="{{route('ads_slot.edit', $item->id)}}" class="btn btn-success btn-sm" role="button" aria-disabled="true"><i class="fas fa-edit"></i></a>

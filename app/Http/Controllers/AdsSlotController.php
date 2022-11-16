@@ -23,7 +23,16 @@ class AdsSlotController extends Controller
     {
         $dataWebsite = MasterWebsite::get(['id', 'website_name']);
         $dataPartner = MasterPartner::get(['id', 'name']);
-        $dataAdsSlot = AdsSlot::with(['getWebsite', 'getPartner'])->get();
+        $dataAdsSlot = AdsSlot::with([
+                       'getWebsite', 
+                       'getMobTop',
+                       'getMobInArt1',
+                       'getMobInArt2',
+                       'getMobInArt3',
+                       'getStickBot',
+                       'getMobImage',
+                       'getMobNative',
+                       'getMobVid'])->get();
 
         return view('adsSlot.index', compact('dataWebsite', 'dataPartner', 'dataAdsSlot'));
     }
@@ -46,6 +55,7 @@ class AdsSlotController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $dataAdsSlot = AdsSlot::create([
             'website_id' => $request->website_id,
             'mob_top' => $request->mob_top,
@@ -133,9 +143,9 @@ class AdsSlotController extends Controller
      * @param  \App\Models\AdsSlot  $adsSlot
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdsSlot $adsSlot)
+    public function destroy($id)
     {
-        $dataAds = AdsDeposit::find($id);
+        $dataAds = AdsSlot::find($id);
         $dataAds->delete();
 
         return redirect()->back()->with('status', 'Data Berhasil Dihapus');
