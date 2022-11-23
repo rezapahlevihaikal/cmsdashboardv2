@@ -71,6 +71,8 @@ class HomeController extends Controller
             
         } elseif(Auth::user()->role_user == 'adminjprof') {
             return view('dashboardJprof');
+        } elseif(Auth::user()->role_user == 'adminAds') {
+            return view('dashboardAds');
         }
         
     }
