@@ -21,11 +21,18 @@ class ProgrammaticsController extends Controller
      */
     public function index()
     {
-        $date = Carbon::today()->subDay(7);
+        
+        $date = Carbon::today()->subDay(7)->format('Y-m-d');
+        
 
         $dataWebsite = MasterWebsite::get(['id','website_name']);
         $dataPartner = MasterPartner::get(['id', 'name']);
-        $dataProg = Programmatics::with(['getWebsite', 'getPartner'])->whereDate('dataadd', '>', $date)->get();
+
+
+        $dataProg = Programmatics::with(['getWebsite', 'getPartner'])
+                    ->whereDate('dataadd', '>=', $date)
+                    ->latest('id')
+                    ->get();
 
         return view('prog.index', compact('dataWebsite', 'dataProg', 'dataPartner'));
     }

@@ -153,6 +153,7 @@
       $(document).ready( function () {
             $('#table-os').DataTable({
               scrollX:true,
+              ordering: false
             });
             // $('#ctr').mask('00.000', {reverse: true});
             // $('#cpc').mask('00.000', {reverse: true});
