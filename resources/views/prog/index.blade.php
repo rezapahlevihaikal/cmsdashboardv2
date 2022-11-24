@@ -54,10 +54,10 @@
                             <label for="formGroupExampleInput2">Fillrate</label>
                             <input type="text" class="form-control" id="fillrate" placeholder="" name="fillrate">
                           </div>
-                          <div class="form-group">
+                          {{-- <div class="form-group">
                             <label for="formGroupExampleInput2">Views</label>
                             <input type="text" class="form-control" id="views" placeholder="" name="views">
-                          </div>
+                          </div> --}}
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Clicks</label>
                             <input type="text" class="form-control" id="clicks" placeholder="" name="clicks">
@@ -97,7 +97,7 @@
                             <th scope="col">Matchedrequests</th>
                             <th scope="col">Impressions</th>
                             <th scope="col">Fillrate</th>
-                            <th scope="col">Views</th>
+                            {{-- <th scope="col">Views</th> --}}
                             <th scope="col">Clicks</th>
                             <th scope="col">CTR</th>
                             <th scope="col">CPC</th>
@@ -117,9 +117,9 @@
                               <td>{{$item->matchedrequests}}</td>
                               <td>{{$item->impressions}}</td>
                               <td>{{$item->fillrate}}</td>
-                              <td>
+                              {{-- <td>
                                 {{$item->views}}
-                              </td>
+                              </td> --}}
                               <td>
                                 {{$item->clicks}}
                               </td>
@@ -154,10 +154,10 @@
             $('#table-os').DataTable({
               scrollX:true,
             });
-            $('#ctr').mask('00.000', {reverse: true});
-            $('#cpc').mask('00.000', {reverse: true});
-            $('#cpm').mask('00.000', {reverse: true});
-            $('#laba').mask('00.000', {reverse: true});
+            // $('#ctr').mask('00.000', {reverse: true});
+            // $('#cpc').mask('00.000', {reverse: true});
+            // $('#cpm').mask('00.000', {reverse: true});
+            // $('#laba').mask('00.000', {reverse: true});
       });
     </script>
 @endpush

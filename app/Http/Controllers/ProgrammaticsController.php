@@ -6,6 +6,7 @@ use App\Models\Programmatics;
 use App\Models\MasterWebsite;
 use App\Models\MasterPartner;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ProgrammaticsController extends Controller
 {
@@ -20,9 +21,11 @@ class ProgrammaticsController extends Controller
      */
     public function index()
     {
+        $date = Carbon::today()->subDay(7);
+
         $dataWebsite = MasterWebsite::get(['id','website_name']);
         $dataPartner = MasterPartner::get(['id', 'name']);
-        $dataProg = Programmatics::with(['getWebsite', 'getPartner'])->get();
+        $dataProg = Programmatics::with(['getWebsite', 'getPartner'])->whereDate('dataadd', '>', $date)->get();
 
         return view('prog.index', compact('dataWebsite', 'dataProg', 'dataPartner'));
     }
@@ -50,7 +53,7 @@ class ProgrammaticsController extends Controller
             'matchedrequests' => $request->matchedrequests,
             'impressions' => $request->impressions,
             'fillrate' => $request->fillrate,
-            'views' => $request->views,
+            // 'views' => $request->views,
             'clicks' => $request->clicks,
             'cpc' => $request->cpc,
             'ctr' => $request->ctr,
@@ -111,7 +114,7 @@ class ProgrammaticsController extends Controller
             'matchedrequests' => $request->matchedrequests,
             'impressions' => $request->impressions,
             'fillrate' => $request->fillrate,
-            'views' => $request->views,
+            // 'views' => $request->views,
             'clicks' => $request->clicks,
             'cpc' => $request->cpc,
             'ctr' => $request->ctr,
