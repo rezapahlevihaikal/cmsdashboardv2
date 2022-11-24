@@ -31,6 +31,9 @@ class ProgrammaticsController extends Controller
 
         $dataProg = Programmatics::with(['getWebsite', 'getPartner'])
                     ->whereDate('dataadd', '>=', $date)
+                    ->orderBy('dataAdd', 'DESC')
+                    ->orderBy('partner_id', 'DESC')
+                    ->orderBy('website')
                     ->latest('id')
                     ->get();
 
