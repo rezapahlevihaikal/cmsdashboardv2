@@ -93,6 +93,7 @@
                       <table id="table-os" class="table table-bordered text-center">
                         <thead class="thead-light">
                           <tr>
+                            <th scope="col">Action</th>
                             <th scope="col">Website</th>
                             <th scope="col">Matchedrequests</th>
                             <th scope="col">Impressions</th>
@@ -103,12 +104,20 @@
                             <th scope="col">CPC</th>
                             <th scope="col">CPM</th>
                             <th scope="col">Laba</th>
-                            <th scope="col">Action</th>
+                            
                           </tr>
                         </thead>
                         <tbody>
                           @foreach($dataProg as $item)
                             <tr style="text-align: center">
+                              <td>
+                                <form action="{{route('programmatics.destroy', $item->id)}}" method="POST">
+                                  <a href="{{route('programmatics.edit', $item->id)}}" class="btn btn-success btn-sm" role="button" aria-disabled="true"><i class="fas fa-edit"></i></a>
+                                  @csrf
+                                  @method('post')
+                                  <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>
+                                </form>
+                            </td>
                               <td>
                                 {{$item->getWebsite->website_name ?? "kosong"}} ({{$item->getPartner->name ?? "kosong"}})
                                 <br>
@@ -129,14 +138,7 @@
                               <td>{{$item->cpc}}</td>
                               <td>{{$item->cpm}}</td>
                               <td>{{$item->laba}}</td>
-                              <td>
-                                  <form action="{{route('programmatics.destroy', $item->id)}}" method="POST">
-                                    <a href="{{route('programmatics.edit', $item->id)}}" class="btn btn-success btn-sm" role="button" aria-disabled="true"><i class="fas fa-edit"></i></a>
-                                    @csrf
-                                    @method('post')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yang bener?');"><i class="fas fa-trash"></i></button></td>
-                                  </form>
-                              </td>
+                              
                             </tr>
                           @endforeach
                         </tbody>

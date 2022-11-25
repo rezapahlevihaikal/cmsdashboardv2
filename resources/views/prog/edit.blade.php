@@ -75,7 +75,7 @@
                         </div>
                     </div>
                     <br>
-                    <button class="btn btn-success" onclick="window.location='{{url('/ads')}}'" type="reset">Back</button>
+                    <button class="btn btn-success" onclick="window.location='{{url('/programmatics')}}'" type="reset">Back</button>
                     <button class="btn btn-primary" type="submit">Update Data</button>
                   </form>
             </div>
@@ -86,10 +86,10 @@
 @push('js')
     <script type="text/javascript">
       $(document).ready( function () {
-            $('#ctr').mask('00.000', {reverse: true});
-            $('#cpc').mask('00.000', {reverse: true});
-            $('#cpm').mask('00.000', {reverse: true});
-            $('#laba').mask('00.000', {reverse: true});
+            // $('#ctr').mask('00.000', {reverse: true});
+            // $('#cpc').mask('00.000', {reverse: true});
+            // $('#cpm').mask('00.000', {reverse: true});
+            // $('#laba').mask('00.000', {reverse: true});
       });
     </script>
 @endpush
