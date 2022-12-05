@@ -282,6 +282,16 @@
                                     {{ __('Core Bisnis') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kategoriBisnis">
+                                    {{ __('Kategori Bisnis') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productBisnis">
+                                    {{ __('Product Bisnis') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

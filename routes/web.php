@@ -28,6 +28,8 @@ use App\Http\Controllers\MasterRivalController;
 use App\Http\Controllers\AdsDepositController;
 use App\Http\Controllers\ProgrammaticsController;
 use App\Http\Controllers\AdsSlotController;
+use App\Http\Controllers\KategoriBisnisController;
+use App\Http\Controllers\ProductBisnisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -241,4 +243,20 @@ Route::prefix('programmatics')->group(function(){
 	Route::get('edit/{id}', [ProgrammaticsController::class, 'edit'])->name('programmatics.edit');
 	Route::post('update/{id}', [ProgrammaticsController::class, 'update'])->name('programmatics.update');
 	Route::post('delete/{id}', [ProgrammaticsController::class, 'destroy'])->name('programmatics.destroy');
+});
+
+Route::prefix('kategoriBisnis')->group(function(){
+	Route::get('/', [KategoriBisnisController::class, 'index'])->name('kategoriBisnis');
+	Route::post('store', [KategoriBisnisController::class, 'store'])->name('kategoriBisnis.store');
+	Route::get('edit/{id}', [KategoriBisnisController::class, 'edit'])->name('kategoriBisnis.edit');
+	Route::post('update/{id}', [KategoriBisnisController::class, 'update'])->name('kategoriBisnis.update');
+	Route::post('delete/{id}', [KategoriBisnisController::class, 'destroy'])->name('kategoriBisnis.destroy');
+});
+
+Route::prefix('productBisnis')->group(function(){
+	Route::get('/', [ProductBisnisController::class, 'index'])->name('productBisnis');
+	Route::post('store', [ProductBisnisController::class, 'store'])->name('productBisnis.store');
+	Route::get('edit/{id}', [ProductBisnisController::class, 'edit'])->name('productBisnis.edit');
+	Route::post('update/{id}', [ProductBisnisController::class, 'update'])->name('productBisnis.update');
+	Route::post('delete/{id}', [ProductBisnisController::class, 'destroy'])->name('productBisnis.destroy');
 });
