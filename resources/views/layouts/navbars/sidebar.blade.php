@@ -145,12 +145,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fas fa-chart-line" style="color: #f4645f;"></i>
+                    <a class="nav-link" href="#navbar-examples1" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-warehouse-alt"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Programmatics') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse show" id="navbar-examples1">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('ads')}}">
@@ -165,6 +165,32 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('programmatics')}}">
                                     {{ __('Data Programmatics') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-window-maximize"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Expanditure') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples2">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('mst_expanditure')}}">
+                                    {{ __('Master Expanditure') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('bisnisExpanditure')}}">
+                                    {{ __('Bisnis Expanditure') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('bisnisIncome')}}">
+                                    {{ __('Bisnis Income') }}
                                 </a>
                             </li>
                         </ul>

@@ -30,6 +30,9 @@ use App\Http\Controllers\ProgrammaticsController;
 use App\Http\Controllers\AdsSlotController;
 use App\Http\Controllers\KategoriBisnisController;
 use App\Http\Controllers\ProductBisnisController;
+use App\Http\Controllers\MasterExpanditureController;
+use App\Http\Controllers\BisnisIncomeController;
+use App\Http\Controllers\BisnisExpanditureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -259,4 +262,29 @@ Route::prefix('productBisnis')->group(function(){
 	Route::get('edit/{id}', [ProductBisnisController::class, 'edit'])->name('productBisnis.edit');
 	Route::post('update/{id}', [ProductBisnisController::class, 'update'])->name('productBisnis.update');
 	Route::post('delete/{id}', [ProductBisnisController::class, 'destroy'])->name('productBisnis.destroy');
+});
+
+
+Route::prefix('mst_expanditure')->group(function(){
+	Route::get('/', [MasterExpanditureController::class, 'index'])->name('mst_expanditure');
+	Route::post('store', [MasterExpanditureController::class, 'store'])->name('mst_expanditure.store');
+	Route::get('edit/{id}', [MasterExpanditureController::class, 'edit'])->name('mst_expanditure.edit');
+	Route::post('update/{id}', [MasterExpanditureController::class, 'update'])->name('mst_expanditure.update');
+	Route::post('delete/{id}', [MasterExpanditureController::class, 'destroy'])->name('mst_expanditure.destroy');
+});
+
+Route::prefix('bisnisIncome')->group(function(){
+	Route::get('/', [BisnisIncomeController::class, 'index'])->name('bisnisIncome');
+	Route::post('store', [BisnisIncomeController::class, 'store'])->name('bisnisIncome.store');
+	Route::get('edit/{id}', [BisnisIncomeController::class, 'edit'])->name('bisnisIncome.edit');
+	Route::post('update/{id}', [BisnisIncomeController::class, 'update'])->name('bisnisIncome.update');
+	Route::post('delete/{id}', [BisnisIncomeController::class, 'destroy'])->name('bisnisIncome.destroy');
+});
+
+Route::prefix('bisnisExpanditure')->group(function(){
+	Route::get('/', [BisnisExpanditureController::class, 'index'])->name('bisnisExpanditure');
+	Route::post('store', [BisnisExpanditureController::class, 'store'])->name('bisnisExpanditure.store');
+	Route::get('edit/{id}', [BisnisExpanditureController::class, 'edit'])->name('bisnisExpanditure.edit');
+	Route::post('update/{id}', [BisnisExpanditureController::class, 'update'])->name('bisnisExpanditure.update');
+	Route::post('delete/{id}', [BisnisExpanditureController::class, 'destroy'])->name('bisnisExpanditure.destroy');
 });
