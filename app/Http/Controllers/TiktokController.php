@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Tiktok;
+use App\Models\TikRank;
+use App\Models\MasterWebsite;
 
 class TiktokController extends Controller
 {
@@ -20,11 +22,10 @@ class TiktokController extends Controller
     public function index()
     {
         //
-        $dataTiktok = DB::table('tiktok_ranks')
-        ->select("*")
-        ->get();
+        $dataWebsite = MasterWebsite::get(['id', 'website_name']);
+        $dataTiktok = TikRank::with(['getWebsite'])->latest('dataadd')->get();
 
-        return view('tiktok.index', compact('dataTiktok'));
+        return view('tiktok.index', compact('dataTiktok', 'dataWebsite'));
     }
 
     /**
@@ -47,15 +48,10 @@ class TiktokController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = Tiktok::create([
-            'tiktok_we_rank' => $request->tiktok_we_rank,
-            'tiktok_hs_rank' => $request->tiktok_hs_rank,
-            'tiktok_populis_rank' => $request->tiktok_populis_rank,
-            'tiktok_konten_jatim_rank' => $request->tiktok_konten_jatim_rank,
-            'tiktok_we_nilai' => $request->tiktok_we_nilai,
-            'tiktok_hs_nilai' => $request->tiktok_hs_nilai,
-            'tiktok_populis_nilai' => $request->tiktok_populis_nilai,
-            'tiktok_konten_jatim_nilai' => $request->tiktok_konten_jatim_nilai
+        $validator = TikRank::create([
+            'dataadd' => $request->dataadd,
+            'website_id' => $request->website_id,
+            'rank' => $request->rank
         ]);
         if($validator)
         {
@@ -87,8 +83,9 @@ class TiktokController extends Controller
     public function edit($id)
     {
         //
-            $dataTiktok = Tiktok::findOrFail($id);
-            return view('tiktok.edit', compact('dataTiktok'));
+            $dataWebsite = MasterWebsite::get(['id', 'website_name']);
+            $dataTiktok = TikRank::findOrFail($id);
+            return view('tiktok.edit', compact('dataTiktok', 'dataWebsite'));
     }
 
     /**
@@ -101,16 +98,11 @@ class TiktokController extends Controller
     public function update(Request $request, $id)
     {
         //
-            $dataTiktok = Tiktok::findOrFail($id);
+            $dataTiktok = TikRank::findOrFail($id);
             $dataTiktok->update([
-                'tiktok_we_rank' => $request->tiktok_we_rank,
-                'tiktok_hs_rank' => $request->tiktok_hs_rank,
-                'tiktok_populis_rank' => $request->tiktok_populis_rank,
-                'tiktok_konten_jatim_rank' => $request->tiktok_konten_jatim_rank,
-                'tiktok_we_nilai' => $request->tiktok_we_nilai,
-                'tiktok_hs_nilai' => $request->tiktok_hs_nilai,
-                'tiktok_populis_nilai' => $request->tiktok_populis_nilai,
-                'tiktok_konten_jatim_nilai' => $request->tiktok_konten_jatim_nilai
+                'dataadd' => $request->dataadd,
+                'website_id' => $request->website_id,
+                'rank' => $request->rank
             ]);
 
             if($dataTiktok){
@@ -130,7 +122,7 @@ class TiktokController extends Controller
     public function destroy($id)
     {
         //
-            $dataTiktok = Tiktok::findOrFail($id);
+            $dataTiktok = TikRank::findOrFail($id);
             $dataTiktok->delete();
 
             return redirect()->back()->with('status','Success Deleted');

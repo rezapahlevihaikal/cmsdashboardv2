@@ -20,38 +20,23 @@
                 <div class="modal-body">
                   <form action="{{route('tiktok.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Warta Ekonomi</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_we_rank">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">HerStory</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_hs_rank">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Populis</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_populis_rank">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Konten Jatim</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_konten_jatim_rank">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">WE (Nilai)</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_we_nilai">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">HS (Nilai)</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_hs_nilai">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Populis (Nilai)</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_populis_nilai">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Konten Jatim (Nilai)</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="tiktok_konten_jatim_nilai">
-                      </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Tanggal</label>
+                      <input type="date" class="form-control" id="formGroupExampleInput" placeholder="" name="dataadd">
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput2">PLATFORM</label>
+                      <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="website_id" required>
+                          <option value="">PILIH PLATFORM</option>
+                          @foreach ($dataWebsite as $item)
+                            <option value="{{$item->id}}">{{$item->website_name}}</option>    
+                          @endforeach
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Rank</label>
+                      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="rank">
+                    </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="sybmit" class="btn btn-primary">Add Data</button>
@@ -68,28 +53,18 @@
                     <table class="table table-bordered text-center" id="table-os">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">{{ __('Warta Ekonomi')}}</th>
-                                <th scope="col">{{ __('HerStory') }}</th>
-                                <th scope="col">{{ __('Populis') }}</th>
-                                <th scope="col">{{ __('Konten Jatim') }}</th>
-                                <th scope="col">{{ __('WE (Nilai)') }}</th>
-                                <th scope="col">{{ __('HS (Nilai)') }}</th>
-                                <th scope="col">{{ __('Populis (Nilai)') }}</th>
-                                <th scope="col">{{ __('Konten Jatim (Nilai)') }}</th>
+                                <th scope="col">{{ __('Date')}}</th>
+                                <th scope="col">{{ __('Platform') }}</th>
+                                <th scope="col">{{ __('Rank') }}</th>
                                 <th scope="col">{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($dataTiktok as $item)
                               <tr style="text-align: center">
-                                <td><a href="{{route('tiktok.edit', $item->id)}}">{{$item->tiktok_we_rank}}</a></td>
-                                <td>{{$item->tiktok_hs_rank}}</td>
-                                <td>{{$item->tiktok_populis_rank}}</td>
-                                <td>{{$item->tiktok_konten_jatim_rank}}</td>
-                                <td>{{$item->tiktok_we_nilai}}</td>
-                                <td>{{$item->tiktok_hs_nilai}}</td>
-                                <td>{{$item->tiktok_populis_nilai}}</td>
-                                <td>{{$item->tiktok_konten_jatim_nilai}}</td>
+                                <td><a href="{{route('tiktok.edit', $item->id)}}">{{$item->dataadd}}</a></td>
+                                <td>{{$item->getWebsite->website_name}}</td>
+                                <td>{{$item->rank}}</td>
                                 <td>
                                   <form action="{{route('tiktok.destroy', $item->id)}}" method="POST">
                                     @csrf
@@ -111,7 +86,7 @@
     <script type="text/javascript">
        $(document).ready( function () {
             $('#table-os').DataTable({
-                scrollX:true,
+                
             });
         } );
     </script>

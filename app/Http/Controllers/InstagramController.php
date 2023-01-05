@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\Instagram;
+use App\Models\IgRank;
+use App\Models\MasterWebsite;
 
 class InstagramController extends Controller
 {
@@ -20,11 +21,10 @@ class InstagramController extends Controller
     public function index()
     {
         //
-        $dataInstagram = DB::table('instagram_ranks')
-        ->select('*')
-        ->get();
+        $dataWebsite = MasterWebsite::get(['id', 'website_name']);
+        $dataInstagram = IgRank::with(['getWebsite'])->latest('dataadd')->get();
 
-        return view('instagram.index', compact('dataInstagram'));
+        return view('instagram.index', compact('dataInstagram', 'dataWebsite'));
     }
 
     /**
@@ -46,15 +46,10 @@ class InstagramController extends Controller
     public function store(Request $request)
     {
         //
-        $validator = Instagram::create([
-            'ig_we_rank' => $request->ig_we_rank,
-            'ig_hs_rank' => $request->ig_hs_rank,
-            'ig_populis_rank' => $request->ig_populis_rank,
-            'ig_konten_jatim_rank' => $request->ig_konten_jatim_rank,
-            'ig_we_nilai' => $request->ig_we_nilai,
-            'ig_hs_nilai' => $request->ig_hs_nilai,
-            'ig_populis_nilai' => $request->ig_populis_nilai,
-            'ig_konten_jatim_nilai' => $request->ig_konten_jatim_nilai
+        $validator = IgRank::create([
+            'dataadd' => $request->dataadd,
+            'website_id' => $request->website_id,
+            'rank' => $request->rank
         ]);
         if($validator)
         {
@@ -86,8 +81,9 @@ class InstagramController extends Controller
     public function edit($id)
     {
         //
-        $dataInstagram = Instagram::findOrFail($id);
-        return view('instagram.edit', compact('dataInstagram'));
+        $dataWebsite = MasterWebsite::get(['id', 'website_name']);
+        $dataInstagram = IgRank::findOrFail($id);
+        return view('instagram.edit', compact('dataInstagram','dataWebsite'));
     }
 
     /**
@@ -100,16 +96,11 @@ class InstagramController extends Controller
     public function update(Request $request, $id)
     {
         //
-            $dataInstagram = Instagram::findOrFail($id);
+            $dataInstagram = IgRank::findOrFail($id);
             $dataInstagram->update([
-                'ig_we_rank' => $request->ig_we_rank,
-                'ig_hs_rank' => $request->ig_hs_rank,
-                'ig_populis_rank' => $request->ig_populis_rank,
-                'ig_konten_jatim_rank' => $request->ig_konten_jatim_rank,
-                'ig_we_nilai' => $request->ig_we_nilai,
-                'ig_hs_nilai' => $request->ig_hs_nilai,
-                'ig_populis_nilai' => $request->ig_populis_nilai,
-                'ig_konten_jatim_nilai' => $request->ig_konten_jatim_nilai
+                'dataadd' => $request->dataadd,
+                'website_id' => $request->website_id,
+                'rank' => $request->rank
             ]);
 
             if($dataInstagram){
@@ -129,7 +120,7 @@ class InstagramController extends Controller
     public function destroy($id)
     {
         //
-            $dataInstagram = Instagram::findOrFail($id);
+            $dataInstagram = IgRank::findOrFail($id);
             $dataInstagram->delete();
 
             return redirect()->back()->with('status','Success Deleted');
