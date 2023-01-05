@@ -51,6 +51,7 @@
                             <tr>
                                 <th>Rival</th>
                                 <th>Value</th>
+                                <th>Date</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -59,6 +60,7 @@
                             <tr style="text-align: center">
                               <td><a href="{{route('rivality.edit', $row->id)}}">{{$row->getRival->name ?? "kosong"}}</a></td>
                               <td>{{$row->value}}</td>
+                              <td>{{$row->created_at->format('d-m-Y')}}</td>
                               <td>
                                 <form action="{{route('rivality.destroy', $row->id)}}" method="POST">
                                     @csrf
@@ -81,7 +83,7 @@
     <script type="text/javascript">
        $(document).ready( function () {
             $('#table-os').DataTable({
-                
+                ordering: false
             });
         } );
     </script>

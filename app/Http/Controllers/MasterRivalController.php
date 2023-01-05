@@ -17,7 +17,7 @@ class MasterRivalController extends Controller
     {
         //
         $rivalities = Rivalities::get(['id', 'name']);
-        $dataRival = MasterRival::with(['getRival'])->get();
+        $dataRival = MasterRival::with(['getRival'])->latest('created_at')->get();
 
         return view('rivality.index', compact('rivalities', 'dataRival'));
     }
