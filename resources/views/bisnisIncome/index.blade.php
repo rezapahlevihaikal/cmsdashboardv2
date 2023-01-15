@@ -25,7 +25,7 @@
                         <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="core_bisnis_id" required>
                           <option value="">PILIH CORE BISNIS</option>
                           @foreach ($dataCoreBisnis as $item)
-                              <option value="{{$item->id}}">{{$item->nama_core_bisnis}}</option>    
+                              <option value="{{$item->id}}">{{$item->nama_core_bisnis}} | {{$item->divisi}} </option>    
                           @endforeach
                         </select>
                       </div>
@@ -34,8 +34,13 @@
                         <input type="text" class="form-control" id="" placeholder="" name="sub_domain">
                       </div>
                       <div class="form-group">
-                        <label for="formGroupExampleInput2">Pendapatan</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="pendapatan">
+                        <label class="" for="formGroupExampleInput2">Pendapatan</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Rp</div>
+                          </div>
+                          <input type="text" class="form-control" id="pendapatan" placeholder="" name="pendapatan">
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Bulan</label>
@@ -74,7 +79,7 @@
                         <tbody>
                             @foreach($data as $row)
                               <tr style="text-align: center">
-                                <td><a href="{{route('bisnisIncome.edit', $row->id)}}" title="{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}}">{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}}</a></td>
+                                <td><a href="{{route('bisnisIncome.edit', $row->id)}}" title="{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}} | {{$row->getCoreBisnis->divisi ?? 'kosong'}}">{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}} | {{$row->getCoreBisnis->divisi ?? 'kosong'}}</a></td>
                                 <td>Rp {{number_format($row->pendapatan)}}</td>
                                 <td>{{$row->bulan}} - {{$row->tahun}} </td>
                                 <td>
@@ -100,6 +105,7 @@
             $('#table-os').DataTable({
                 // scrollX:true,
             });
+            $('#pendapatan').mask('#.##0', {reverse: true});
         } );
     </script>
 @endpush

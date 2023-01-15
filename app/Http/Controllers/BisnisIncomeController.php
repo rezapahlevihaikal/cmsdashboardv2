@@ -21,7 +21,7 @@ class BisnisIncomeController extends Controller
     public function index()
     {
         //
-        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $data = BisnisIncome::with(['getCoreBisnis'])->get();
 
         return view('bisnisIncome.index', compact('dataCoreBisnis', 'data'));
@@ -48,7 +48,7 @@ class BisnisIncomeController extends Controller
         $data = BisnisIncome::create([
             'core_bisnis_id' => $request->core_bisnis_id,
             'sub_domain' => $request->sub_domain,
-            'pendapatan' => $request->pendapatan,
+            'pendapatan' => str_replace('.', '', $request->pendapatan),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
             'description' => $request->description
@@ -81,7 +81,7 @@ class BisnisIncomeController extends Controller
      */
     public function edit($id)
     {
-        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $data = BisnisIncome::find($id);
 
         return view('bisnisIncome.edit', compact('dataCoreBisnis', 'data'));
@@ -100,7 +100,7 @@ class BisnisIncomeController extends Controller
         $data->update([
             'core_bisnis_id' => $request->core_bisnis_id,
             'sub_domain' => $request->sub_domain,
-            'pendapatan' => $request->pendapatan,
+            'pendapatan' => str_replace('.', '', $request->pendapatan),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
             'description' => $request->description
