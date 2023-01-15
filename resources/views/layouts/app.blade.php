@@ -27,6 +27,10 @@
         {{-- dateTime --}}
         <script src="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.js"></script>
         <link href="https://cdn.jsdelivr.net/timepicker.js/latest/timepicker.min.css" rel="stylesheet"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
     
     </head>
     <body class="{{ $class ?? '' }}">

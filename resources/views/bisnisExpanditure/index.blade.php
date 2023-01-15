@@ -25,7 +25,7 @@
                         <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="core_bisnis_id" required>
                           <option value="">PILIH CORE BISNIS</option>
                           @foreach ($dataCoreBisnis as $item)
-                              <option value="{{$item->id}}">{{$item->nama_core_bisnis}}</option>    
+                              <option value="{{$item->id}}">{{$item->nama_core_bisnis}} | {{$item->divisi}} </option>    
                           @endforeach
                         </select>
                       </div>
@@ -51,8 +51,13 @@
                         <input type="text" class="form-control" id="" placeholder="" name="tahun">
                       </div>
                       <div class="form-group">
-                        <label for="formGroupExampleInput2">Nominal</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="nominal">
+                        <label class="" for="formGroupExampleInput2">Nominal</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">Rp</div>
+                          </div>
+                          <input type="text" class="form-control" id="nominal" placeholder="" name="nominal">
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Keterangan</label>
@@ -112,6 +117,7 @@
             $('#table-os').DataTable({
                 // scrollX:true,
             });
+            $('#nominal').mask('#.##0', {reverse: true});
         } );
     </script>
 @endpush

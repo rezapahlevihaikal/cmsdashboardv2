@@ -21,7 +21,7 @@ class BisnisExpanditureController extends Controller
      */
     public function index()
     {
-        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $dataMaster = MasterExpanditure::get(['id', 'name', 'kategori']);
         $data = BisnisExpanditure::with(['getCoreBisnis', 'getKategori'])->get();
 
@@ -52,7 +52,7 @@ class BisnisExpanditureController extends Controller
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
             'kategori_id' => $request->kategori_id,
-            'nominal' => $request->nominal,
+            'nominal' => str_replace('.', '', $request->nominal),
             'keterangan' => $request->keterangan,
         ]);
 
@@ -83,7 +83,7 @@ class BisnisExpanditureController extends Controller
      */
     public function edit($id)
     {
-        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis']);
+        $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $dataMaster = MasterExpanditure::get(['id', 'name', 'kategori']);
         $data = BisnisExpanditure::find($id);
 
@@ -106,7 +106,7 @@ class BisnisExpanditureController extends Controller
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
             'kategori_id' => $request->kategori_id,
-            'nominal' => $request->nominal,
+            'nominal' => str_replace('.', '', $request->nominal),
             'keterangan' => $request->keterangan,
         ]);
 

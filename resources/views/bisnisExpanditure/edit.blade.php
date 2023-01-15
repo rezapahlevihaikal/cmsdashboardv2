@@ -13,7 +13,7 @@
                             <label for="demo_overview_minimal">Core Bisnis</label>
                             <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="core_bisnis_id" value="" selected="">
                                 @foreach ($dataCoreBisnis as $item)
-                                <option value="{{ $item->id }}" {{$data->core_bisnis_id == $item->id  ? 'selected' : ''}}>{{ $item->nama_core_bisnis}}</option>
+                                <option value="{{ $item->id }}" {{$data->core_bisnis_id == $item->id  ? 'selected' : ''}}>{{$item->nama_core_bisnis}} | {{$item->divisi}} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -33,8 +33,15 @@
                             <input id="" class="form-control" type="text" name="sub_domain" value="{{$data->sub_domain}}"/>
                           </div>    
                         <div class="col">
-                            <p>Nominal</p>
-                            <input id="" class="form-control" type="text" name="nominal" value="{{$data->nominal}}"/>
+                            <div class="form-group">
+                                <label class="" for="formGroupExampleInput2">Nominal</label>
+                                <div class="input-group mb-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                  </div>
+                                  <input type="text" class="form-control" id="nominal" placeholder="" name="nominal" value="{{$data->nominal}}">
+                                </div>
+                              </div>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 10px">
@@ -63,3 +70,10 @@
         @include('layouts.footers.auth')
     </div>
 @endsection
+@push('js')
+    <script type="text/javascript">
+       $(document).ready( function () {
+            $('#nominal').mask('#.##0', {reverse: true});
+        } );
+    </script>
+@endpush

@@ -171,12 +171,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#navbar-examples2" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link" href="#expanditure" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fas fa-window-maximize"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Expanditure') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples2">
+                    <div class="collapse show" id="expanditure">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('mst_expanditure')}}">
