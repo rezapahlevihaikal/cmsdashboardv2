@@ -24,14 +24,28 @@
                           @endforeach
                       </select>
                       </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Target</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="target" value="{{$dataPerformance->target}}">
-                      </div>
-                      <div class="form-group">
-                        <label for="formGroupExampleInput2">Pencapaian</label>
-                        <input type="text" class="form-control" id="" placeholder="" name="pencapaian" value="{{$dataPerformance->pencapaian}}">
-                      </div>
+                      
+                        <div class="form-group">
+                            <label class="" for="formGroupExampleInput2">Target</label>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">Rp</div>
+                              </div>
+                              <input type="text" class="form-control" id="target" placeholder="" name="target" value="{{$dataPerformance->target}}">
+                            </div>
+                          </div>
+                   
+                   
+                        <div class="form-group">
+                            <label class="" for="formGroupExampleInput2">Pencapaian</label>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">Rp</div>
+                              </div>
+                              <input type="text" class="form-control" id="pencapaian" placeholder="" name="pencapaian" value="{{$dataPerformance->pencapaian}}">
+                            </div>
+                          </div>
+                    
                       {{-- <div class="form-group">
                         <label for="formGroupExampleInput2">Value</label>
                         <input type="text" class="form-control" id="" placeholder="" name="value">
@@ -57,3 +71,11 @@
         @include('layouts.footers.auth')
     </div>
 @endsection
+@push('js')
+    <script type="text/javascript">
+       $(document).ready( function () {
+            $('#pencapaian').mask('#.##0', {reverse: true});
+            $('#target').mask('#.##0', {reverse: true});
+        } );
+    </script>
+@endpush

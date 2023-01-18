@@ -30,12 +30,22 @@
                             </select>
                           </div>
                           <div class="form-group">
-                            <label for="formGroupExampleInput2">Target</label>
-                            <input type="text" class="form-control" name="target">
+                            <label class="" for="formGroupExampleInput2">Target</label>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">Rp</div>
+                              </div>
+                              <input type="text" class="form-control" id="target" placeholder="" name="target">
+                            </div>
                           </div>
                           <div class="form-group">
-                            <label for="formGroupExampleInput2">Percapaian</label>
-                            <input type="text" class="form-control" name="pencapaian">
+                            <label class="" for="formGroupExampleInput2">Pencapaian</label>
+                            <div class="input-group mb-2">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">Rp</div>
+                              </div>
+                              <input type="text" class="form-control" id="pencapaian" placeholder="" name="pencapaian">
+                            </div>
                           </div>
                           <div class="form-group">
                             <label for="formGroupExampleInput2">Bulan</label>
@@ -99,6 +109,8 @@
             $('#table-os').DataTable({
                 
             });
+            $('#pencapaian').mask('#.##0', {reverse: true});
+            $('#target').mask('#.##0', {reverse: true});
         } );
     </script>
 @endpush

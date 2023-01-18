@@ -20,12 +20,26 @@
                     </div>
                     <div class="row" style="padding-top: 10px">
                         <div class="col">
-                            <label for="demo_overview_minimal">Target</label>
-                            <input type="text" class="form-control" name="target" value="{{$dataAePerformance->target}}">
+                            <div class="form-group">
+                                <label class="" for="formGroupExampleInput2">Target</label>
+                                <div class="input-group mb-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                  </div>
+                                  <input type="text" class="form-control" id="target" placeholder="" name="target" value="{{$dataAePerformance->target}}">
+                                </div>
+                              </div>
                         </div>
                         <div class="col">
-                            <label for="demo_overview_minimal">Pencapaian</label>
-                            <input type="text" class="form-control" name="pencapaian" value="{{$dataAePerformance->pencapaian}}">
+                            <div class="form-group">
+                                <label class="" for="formGroupExampleInput2">Pencapaian</label>
+                                <div class="input-group mb-2">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">Rp</div>
+                                  </div>
+                                  <input type="text" class="form-control" id="pencapaian" placeholder="" name="pencapaian" value="{{$dataAePerformance->pencapaian}}">
+                                </div>
+                              </div>
                         </div>
                     </div>
                     <div class="row" style="padding-top: 10px">
@@ -47,3 +61,11 @@
         @include('layouts.footers.auth')
     </div>
 @endsection
+@push('js')
+    <script type="text/javascript">
+       $(document).ready( function () {
+            $('#pencapaian').mask('#.##0', {reverse: true});
+            $('#target').mask('#.##0', {reverse: true});
+        } );
+    </script>
+@endpush

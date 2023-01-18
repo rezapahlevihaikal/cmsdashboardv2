@@ -46,8 +46,8 @@ class AePerformanceController extends Controller
         //
         $dataAePerformance = aePerformance::create([
             'employee_id' => $request->employee_id,
-            'target' => $request->target,
-            'pencapaian' => $request->pencapaian,
+            'target' => str_replace('.', '', $request->target),
+            'pencapaian' => str_replace('.', '', $request->pencapaian),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun
         ]);
@@ -99,8 +99,8 @@ class AePerformanceController extends Controller
         $dataAePerformance = AePerformance::findOrFail($id);
         $dataAePerformance->update([
             'employee_id' => $request->employee_id,
-            'target' => $request->target,
-            'pencapaian' => $request->pencapaian,
+            'target' => str_replace('.', '', $request->target),
+            'pencapaian' => str_replace('.', '', $request->pencapaian),
             'bulan' => $request->bulan,
             'tahun' => $request->tahun
         ]);

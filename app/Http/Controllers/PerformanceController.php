@@ -27,7 +27,7 @@ class PerformanceController extends Controller
         // $coreBisnis = CoreBisnis::where('id_divisi', $divisi->id)->get('name','id');
             $dataDivisi = Divisi::get(['id', 'nama_divisi']);
             $dataCoreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
-            $dataPerformance = Performance::with(['getDivisi', 'getCoreBisnis'])->get();
+            $dataPerformance = Performance::with(['getDivisi', 'getCoreBisnis'])->latest('id')->get();
             return view('performance.index', compact('dataPerformance', 'dataCoreBisnis', 'dataDivisi'));
     }
 
@@ -52,9 +52,9 @@ class PerformanceController extends Controller
         $validator = Performance::create([
             'divisi'=>$request->divisi,
             'core_bisnis'=>$request->core_bisnis,
-            'target'=>$request->target,
-            'pencapaian'=>$request->pencapaian,
-            'value'=>$request->pencapaian/$request->target*100,
+            'target'=>str_replace('.', '', $request->target),
+            'pencapaian'=>str_replace('.', '', $request->pencapaian),
+            'value'=>str_replace('.', '', $request->pencapaian)/str_replace('.', '', $request->target)*100,
             'tanggal'=>$request->tanggal,
             'bulan'=>$request->bulan,
             'tahun'=>$request->tahun,
@@ -110,9 +110,9 @@ class PerformanceController extends Controller
         $dataPerformance->update([
             'divisi' => $request->divisi,
             'core_bisnis' => $request->core_bisnis,
-            'target' => $request->target,
-            'pencapaian' => $request->pencapaian,
-            'value'=>$request->pencapaian/$request->target*100,
+            'target'=>str_replace('.', '', $request->target),
+            'pencapaian'=>str_replace('.', '', $request->pencapaian),
+            'value'=>str_replace('.', '', $request->pencapaian)/str_replace('.', '', $request->target)*100,
             'tanggal' => $request->value,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
