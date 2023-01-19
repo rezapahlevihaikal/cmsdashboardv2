@@ -113,7 +113,7 @@ class PerformanceController extends Controller
             'target'=>str_replace('.', '', $request->target),
             'pencapaian'=>str_replace('.', '', $request->pencapaian),
             'value'=>str_replace('.', '', $request->pencapaian)/str_replace('.', '', $request->target)*100,
-            'tanggal' => $request->value,
+            'tanggal' => $request->tanggal,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun,
             'id_divisi' => $request->id_divisi,
