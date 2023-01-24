@@ -132,7 +132,7 @@
        $(document).ready( function () {
             $('#table-os').DataTable({
                scrollX:true,
-               ordering:false
+              //  ordering:false
             });
             $('#pencapaian').mask('#.##0', {reverse: true});
             $('#target').mask('#.##0', {reverse: true});
