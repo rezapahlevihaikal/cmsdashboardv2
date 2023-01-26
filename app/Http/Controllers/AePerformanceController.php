@@ -48,6 +48,7 @@ class AePerformanceController extends Controller
             'employee_id' => $request->employee_id,
             'target' => str_replace('.', '', $request->target),
             'pencapaian' => str_replace('.', '', $request->pencapaian),
+            'tanggal' => $request->tanggal,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun
         ]);
@@ -101,6 +102,7 @@ class AePerformanceController extends Controller
             'employee_id' => $request->employee_id,
             'target' => str_replace('.', '', $request->target),
             'pencapaian' => str_replace('.', '', $request->pencapaian),
+            'tanggal' => $request->tanggal,
             'bulan' => $request->bulan,
             'tahun' => $request->tahun
         ]);

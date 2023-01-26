@@ -15,6 +15,7 @@ class AePerformance extends Model
         'employee_id',
         'target',
         'pencapaian',
+        'tanggal',
         'bulan',
         'tahun'
     ];
