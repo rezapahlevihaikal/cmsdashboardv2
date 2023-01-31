@@ -164,7 +164,6 @@
                                 <td>Rp {{number_format($item->pencapaian)}}</td>
                                 <td>{{$item->value}}%</td>
                                 <td>{{$item->tanggal}} - {{$item->bulan}} - {{$item->tahun}}</td>
-                                <td></td>
                                 <td>
                                   <form action="{{route('performance.destroy', $item->id)}}" method="POST">
                                     @csrf
