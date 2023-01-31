@@ -151,8 +151,7 @@
                                 <th scope="col">{{ __('Target') }}</th>
                                 <th scope="col">{{ __('Pencapaian') }}</th>
                                 <th scope="col">{{ __('Value') }}</th>
-                                <th scope="col">{{ __('Bulan') }}</th>
-                                <th scope="col">{{ __('Tahun') }}</th>
+                                <th scope="col">{{ __('Tanggal') }}</th>
                                 <th scope="col">{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -164,8 +163,8 @@
                                 <td>Rp {{number_format($item->target)}}</td>
                                 <td>Rp {{number_format($item->pencapaian)}}</td>
                                 <td>{{$item->value}}%</td>
-                                <td>{{$item->bulan}}</td>
-                                <td>{{$item->tahun}}</td>
+                                <td>{{$item->tanggal}} - {{$item->bulan}} - {{$item->tahun}}</td>
+                                <td></td>
                                 <td>
                                   <form action="{{route('performance.destroy', $item->id)}}" method="POST">
                                     @csrf
