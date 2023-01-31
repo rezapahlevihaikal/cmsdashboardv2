@@ -21,7 +21,7 @@ class AePerformanceController extends Controller
     {
         //
         $dataAeEmployee  = AeEmployee::get(['id', 'name']);
-        $dataAePerformance = AePerformance::with(['getEmployee'])->get();
+        $dataAePerformance = AePerformance::with(['getEmployee'])->latest('id')->get();
         return view ('aePerformance.index', compact('dataAeEmployee', 'dataAePerformance'));
     }
 

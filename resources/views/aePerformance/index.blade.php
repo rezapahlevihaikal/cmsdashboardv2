@@ -134,19 +134,19 @@
                             <th scope="col">Nama</th>
                             <th scope="col">Target</th>
                             <th scope="col">Pencapaian</th>
-                            <th scope="col">Bulan</th>
-                            <th scope="col">Tahun</th>
+                            <th scope="col">Tanggal</th>
                             <th scope="col">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach($dataAePerformance as $item)
                             <tr style="text-align: center">
-                              <td><a href="{{route('aePerformance.edit', $item->id)}}">{{$item->getEmployee->name ?? "nama tidak ditemukan"}}</a></td>
+                              <td>
+                                <a href="{{route('aePerformance.edit', $item->id)}}">{{$item->getEmployee->name ?? "nama tidak ditemukan"}}</a>
+                              </td>
                               <td>Rp {{number_format($item->target)}}</td>
                               <td>Rp {{number_format($item->pencapaian)}}</td>
-                              <td>{{$item->bulan}}</td>
-                              <td>{{$item->tahun}}</td>
+                              <td>{{$item->tanggal}} - {{$item->bulan}} - {{$item->tahun}}</td>
                               <td>
                                 <form action="{{route('aePerformance.destroy', $item->id)}}" method="POST">
                                   @csrf
