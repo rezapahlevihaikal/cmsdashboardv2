@@ -89,7 +89,7 @@
                         <tbody>
                             @foreach($data as $row)
                               <tr style="text-align: center">
-                                <td><a href="{{route('bisnisExpanditure.edit', $row->id)}}" title="{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}}">{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}}</a></td>
+                                <td><a href="{{route('bisnisExpanditure.edit', $row->id)}}" title="{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}}">{{$row->getCoreBisnis->nama_core_bisnis ?? 'kosong'}} <br> {{$row->getCoreBisnis->divisi}}</a></td>
                                 <td> {{$row->getKategori->name}} </td>
                                 <td>{{$row->bulan}} - {{$row->tahun}} </td>
                                 <td>Rp {{number_format($row->nominal)}}</td>
