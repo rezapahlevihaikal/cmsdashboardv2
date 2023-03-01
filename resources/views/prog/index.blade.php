@@ -95,6 +95,7 @@
                           <tr>
                             <th scope="col">Action</th>
                             <th scope="col">Website</th>
+                            <th scope="col">Laba</th>
                             <th scope="col">Matchedrequests</th>
                             <th scope="col">Impressions</th>
                             <th scope="col">Fillrate</th>
@@ -103,8 +104,7 @@
                             <th scope="col">CTR</th>
                             <th scope="col">CPC</th>
                             <th scope="col">CPM</th>
-                            <th scope="col">Laba</th>
-                            
+                           
                           </tr>
                         </thead>
                         <tbody>
@@ -123,6 +123,7 @@
                                 <br>
                                 {{$item->dataadd}}
                               </td>
+                              <td>{{$item->laba}}</td>
                               <td>{{$item->matchedrequests}}</td>
                               <td>{{$item->impressions}}</td>
                               <td>{{$item->fillrate}}</td>
@@ -137,7 +138,7 @@
                               </td>
                               <td>{{$item->cpc}}</td>
                               <td>{{$item->cpm}}</td>
-                              <td>{{$item->laba}}</td>
+                              
                               
                             </tr>
                           @endforeach

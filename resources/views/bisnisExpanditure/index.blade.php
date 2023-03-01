@@ -79,7 +79,7 @@
                     <table class="table table-bordered text-center" id="table-os">
                         <thead class="thead-light">
                             <tr>
-                                <th>Core Bisnis</th>
+                                <th>Divisi</th>
                                 <th>Kategori</th>
                                 <th>Date</th>
                                 <th>Nominal</th>
