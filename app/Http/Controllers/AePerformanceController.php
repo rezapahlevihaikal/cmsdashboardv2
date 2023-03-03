@@ -81,7 +81,7 @@ class AePerformanceController extends Controller
     public function edit($id)
     {
         //
-        $dataAeEmployee = AeEmployee::get(['id', 'name']);
+        $dataAeEmployee = AeEmployee::get(['id', 'name', 'divisi_id', 'core_bisnis_id']);
         $dataAePerformance = AePerformance::findOrFail($id);
 
         return view('aePerformance.edit', compact('dataAeEmployee', 'dataAePerformance'));

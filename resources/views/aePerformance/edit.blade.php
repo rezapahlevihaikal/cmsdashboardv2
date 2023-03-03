@@ -13,7 +13,7 @@
                             <label for="demo_overview_minimal">Nama Pegawai</label>
                             <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="employee_id" value="{{$dataAePerformance->employee_id}}" selected="">
                                 @foreach ($dataAeEmployee as $item)
-                                    <option value="{{ $item->id }}" {{$dataAePerformance->employee_id == $item->id  ? 'selected' : ''}}>{{ $item->name}}</option>
+                                    <option value="{{ $item->id }}" {{$dataAePerformance->employee_id == $item->id  ? 'selected' : ''}}>{{$item->name}} | {{$item->getDivisi->nama_divisi}} - {{$item->getCoreBisnis->nama_core_bisnis}}</option>
                                 @endforeach
                             </select>
                         </div>
