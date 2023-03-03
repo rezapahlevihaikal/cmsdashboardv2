@@ -7,15 +7,15 @@
         <!-- Brand -->
         @if(Auth::user()->role_user == 'adminwe')
             <a class="navbar-brand pt-0" href="{{ route('home') }}">
-                <img src="{{ asset('argon') }}/img/brand/WE.png" class="navbar-brand-img" alt="...">
+                <img src="{{ asset('argon') }}/img/brand/WE.png" class="nav-link {{ request()->is('/home') ? 'active' : '' }}" alt="...">
             </a>
         @elseif(Auth::user()->role_user == 'adminjprof')
             <a class="navbar-brand pt-0" href="{{ route('home') }}">
-                <img src="{{ asset('argon') }}/img/brand/logojprof.png" class="navbar-brand-img" alt="..." style="">
+                <img src="{{ asset('argon') }}/img/brand/logojprof.png" class="nav-link {{ request()->is('/home') ? 'active' : '' }}" alt="..." style="">
             </a>
         @elseif(Auth::user()->role_user == 'adminAds')
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/WE.png" class="navbar-brand-img" alt="..." style="">
+            <img src="{{ asset('argon') }}/img/brand/WE.png" class="nav-link {{ request()->is('home') ? 'active' : '' }}" alt="..." style="">
         </a>
         @endif
         <!-- User -->

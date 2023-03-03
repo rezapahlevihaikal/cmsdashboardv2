@@ -25,7 +25,7 @@
                             <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="employee_id" required>
                                 <option value="">PILIH NAMA PEGAWAI AE</option>
                                 @foreach ($dataAeEmployee as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>    
+                                    <option value="{{$item->id}}">{{$item->name}} | {{$item->getDivisi->nama_divisi}} - {{$item->getCoreBisnis->nama_core_bisnis}} </option>    
                                 @endforeach
                             </select>
                           </div>

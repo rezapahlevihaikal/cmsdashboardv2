@@ -20,7 +20,7 @@ class AePerformanceController extends Controller
     public function index()
     {
         //
-        $dataAeEmployee  = AeEmployee::get(['id', 'name']);
+        $dataAeEmployee  = AeEmployee::get(['id', 'name', 'divisi_id', 'core_bisnis_id']);
         $dataAePerformance = AePerformance::with(['getEmployee'])->latest('id')->get();
         return view ('aePerformance.index', compact('dataAeEmployee', 'dataAePerformance'));
     }
