@@ -375,6 +375,11 @@
                                     {{ __('Data Programmatics') }}
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('kurs')}}">
+                                    {{ __('Kurs') }}
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
