@@ -284,6 +284,11 @@
                     <div class="collapse show" id="navbar-examples3">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+                                <a class="nav-link" href="{{route('kurs')}}">
+                                    {{ __('Kurs') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{route('eventCategory')}}">
                                     {{ __('Kategori Event') }}
                                 </a>

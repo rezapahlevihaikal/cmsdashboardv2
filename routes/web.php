@@ -33,6 +33,7 @@ use App\Http\Controllers\ProductBisnisController;
 use App\Http\Controllers\MasterExpanditureController;
 use App\Http\Controllers\BisnisIncomeController;
 use App\Http\Controllers\BisnisExpanditureController;
+use App\Http\Controllers\KursController;
 
 /*
 |--------------------------------------------------------------------------
@@ -287,4 +288,10 @@ Route::prefix('bisnisExpanditure')->group(function(){
 	Route::get('edit/{id}', [BisnisExpanditureController::class, 'edit'])->name('bisnisExpanditure.edit');
 	Route::post('update/{id}', [BisnisExpanditureController::class, 'update'])->name('bisnisExpanditure.update');
 	Route::post('delete/{id}', [BisnisExpanditureController::class, 'destroy'])->name('bisnisExpanditure.destroy');
+});
+
+Route::prefix('kurs')->group(function(){
+	route::get('/', [KursController::class, 'index'])->name('kurs');
+	route::get('edit/{id}', [KursController::class, 'edit'])->name('kurs.edit');
+	route::post('update/{id}', [KursController::class, 'update'])->name('kurs.update');
 });
