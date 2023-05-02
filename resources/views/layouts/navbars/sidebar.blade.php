@@ -197,6 +197,11 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('predictive')}}">
+                        <i class="fas fa-volcano"></i> {{ __('Predictive') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('followers')}}">
                         <i class="fas fa-thumbs-up"></i> {{ __('Followers') }}
                     </a>

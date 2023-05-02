@@ -34,6 +34,7 @@ use App\Http\Controllers\MasterExpanditureController;
 use App\Http\Controllers\BisnisIncomeController;
 use App\Http\Controllers\BisnisExpanditureController;
 use App\Http\Controllers\KursController;
+use App\Http\Controllers\PredictiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -294,4 +295,12 @@ Route::prefix('kurs')->group(function(){
 	route::get('/', [KursController::class, 'index'])->name('kurs');
 	route::get('edit/{id}', [KursController::class, 'edit'])->name('kurs.edit');
 	route::post('update/{id}', [KursController::class, 'update'])->name('kurs.update');
+});
+
+Route::prefix('predictive')->group(function(){
+	Route::get('/', [PredictiveController::class, 'index'])->name('predictive');
+	Route::post('store', [PredictiveController::class, 'store'])->name('predictive.store');
+	Route::get('edit/{id}', [PredictiveController::class, 'edit'])->name('predictive.edit');
+	Route::post('update/{id}', [PredictiveController::class, 'update'])->name('predictive.update');
+	Route::post('delete/{id}', [PredictiveController::class, 'destroy'])->name('predictive.destroy');
 });
