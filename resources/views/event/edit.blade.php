@@ -9,8 +9,16 @@
                     @csrf
                     @method('POST')
                     <div class="row">
-                        <div class="col-12">
-                            <p>Tanggal</p>
+                        <div class="col">
+                            <label for="demo_overview_minimal">Partner</label>
+                            <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="partner_id" value="" selected="">
+                                @foreach ($dataPartner as $item)
+                                <option value="{{ $item->id }}" {{$dataEvents->partner_id == $item->id  ? 'selected' : ''}}>{{ $item->nama_partner}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="demo_overview_minimal">Tanggal</label>
                             <input id="startDate" class="form-control" type="date" name="tanggal" value="{{$dataEvents->tanggal}}"/>
                             <span id="dateSelected"></span>
                         </div>

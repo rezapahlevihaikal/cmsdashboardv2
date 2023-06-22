@@ -20,6 +20,15 @@
                 <div class="modal-body">
                   <form action="{{route('events.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group">
+                      <label for="formGroupExampleInput2">Partner</label>
+                      <select id="demo_overview_minimal" class="form-control" data-role="select-dropdown" data-profile="minimal" name="partner_id" required>
+                        <option value="">PILIH PARTNER</option>
+                        @foreach ($dataPartner as $item)
+                            <option value="{{$item->id}}">{{$item->nama_partner}}</option>    
+                        @endforeach
+                      </select>
+                    </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput2">Tanggal</label>
                         <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="" name="tanggal">
@@ -92,7 +101,7 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Deksripsi</th>
-                                <th>PIC</th>
+                                <th>PIC/Partner</th>
                                 <th>Tanggal</th>
                                 <th>Start Time</th>
                                 <th>Finish Time</th>
@@ -108,7 +117,11 @@
                             @foreach($dataEvents as $row)
                               <tr style="text-align: center">
                                 <td><a href="{{route('events.edit', $row->id)}}" title="{{$row->deskripsi}}">{!! Str::limit($row->deskripsi, 60) !!}</a></td>
-                                <td>{{$row->pic_name[0]->nama_pic ?? null}}</td>
+                                <td>
+                                  {{$row->pic_name[0]->nama_pic ?? null}}
+                                  <br>
+                                  {{$row->getPartner->nama_partner ?? 'kosong'}}
+                                </td>
                                 <td>{{$row->tanggal}}</td>
                                 <td>{{$row->start_time}}</td>
                                 <td>{{$row->finish_time}}</td>

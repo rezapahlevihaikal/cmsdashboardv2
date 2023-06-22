@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Predictive;
 use Illuminate\Http\Request;
 use App\Models\CoreBisnis;
+use App\Models\Partner;
+use DB;
 
 class PredictiveController extends Controller
 {
@@ -23,6 +25,12 @@ class PredictiveController extends Controller
         $coreBisnis = CoreBisnis::get(['id', 'nama_core_bisnis', 'divisi']);
         $data = Predictive::all();
         return view('predictive.index', compact('coreBisnis','data'));
+    }
+
+    public function indexP()
+    {
+        $data = Partner::all();
+        dd($data);
     }
 
     /**

@@ -10,6 +10,7 @@ use App\Models\EventCategory;
 use App\Models\PicEvent;
 use App\Models\StatusEvent;
 use App\Models\Performance;
+use App\Models\Partner;
 
 class EventController extends Controller
 {
@@ -25,13 +26,13 @@ class EventController extends Controller
     public function index()
     {
         //
-            
+            $dataPartner = Partner::get(['id', 'nama_partner']);
             $dataKategori = EventCategory::get(['id', 'nama_kategori']);
             $dataPicEvent = PicEvent::get(['id', 'nama_pic', 'divisi']);
             $dataStatusEvent = StatusEvent::get(['id', 'nama_status']);
             $dataEvents = Event::with(['cat','pic_name', 'stat2'])->get();
            
-            return view('event.index', compact('dataEvents', 'dataKategori', 'dataStatusEvent', 'dataPicEvent'));
+            return view('event.index', compact('dataEvents', 'dataKategori', 'dataStatusEvent', 'dataPicEvent', 'dataPartner'));
     }
 
     /**
@@ -55,6 +56,7 @@ class EventController extends Controller
         //
         $validator = Event::create([
             'tanggal' => $request->tanggal,
+            'partner_id' => $request->partner_id,
             'start_time' => $request->start_time,
             'finish_time' => $request->finish_time,
             'venue' => $request->venue,
@@ -101,11 +103,12 @@ class EventController extends Controller
     public function edit($id)
     {
         //
+        $dataPartner = Partner::get(['id', 'nama_partner']);
         $dataKategori = EventCategory::get(['id', 'nama_kategori']);
         $dataPicEvent = PicEvent::get(['id', 'nama_pic']);
         $dataStatusEvent = StatusEvent::get(['id', 'nama_status']);
         $dataEvents = Event::findOrFail($id);
-            return view('event.edit', compact('dataEvents','dataKategori', 'dataPicEvent', 'dataStatusEvent')); 
+            return view('event.edit', compact('dataEvents','dataKategori', 'dataPicEvent', 'dataStatusEvent', 'dataPartner')); 
     }
 
     /**
@@ -121,6 +124,7 @@ class EventController extends Controller
             $dataEvents = Event::findOrFail($id);
             $dataEvents->update([
                 'tanggal' => $request->tanggal,
+                'partner_id' => $request->partner_id,
                 'start_time' => $request->start_time,
                 'finish_time' => $request->finish_time,
                 'venue' => $request->venue,

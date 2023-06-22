@@ -304,3 +304,5 @@ Route::prefix('predictive')->group(function(){
 	Route::post('update/{id}', [PredictiveController::class, 'update'])->name('predictive.update');
 	Route::post('delete/{id}', [PredictiveController::class, 'destroy'])->name('predictive.destroy');
 });
+
+Route::get('partner', [PredictiveController::class, 'indexP']);

@@ -23,6 +23,7 @@ class Event extends Model
         'lastupdate',
         'status',
         'id_kategori',
+        'partner_id',
         'id_pic',
         'id_status',
         'cost',
@@ -43,6 +44,11 @@ class Event extends Model
     {
         // return $this->belongsTo('App\Models\StatusEvent', 'id_status', 'id');
         return $this->belongsTo(StatusEvent::class, 'id_status', 'id');
+    }
+
+    public function getPartner()
+    {
+        return $this->belongsTo('App\Models\Partner', 'partner_id', 'id');
     }
 
     public $timestamps = false;
