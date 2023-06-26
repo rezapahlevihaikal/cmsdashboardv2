@@ -121,7 +121,7 @@ class PicController extends Controller
     public function destroy($id)
     {
         //
-        $dataPic = PicEvent::findOrFail();
+        $dataPic = PicEvent::findOrFail($id);
         $dataPic->delete();
 
         return redirect()->back()->with('success', 'Data Berhasil Dihapus');
