@@ -17,6 +17,10 @@
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
             <img src="{{ asset('argon') }}/img/brand/WE.png" class="nav-link {{ request()->is('home') ? 'active' : '' }}" alt="..." style="">
         </a>
+        @elseif(Auth::user()->role_user == 'dataEntry')
+        <a class="navbar-brand pt-0" href="{{ route('home') }}">
+            <img src="{{ asset('argon') }}/img/brand/WE.png" class="nav-link {{ request()->is('home') ? 'active' : '' }}" alt="..." style="">
+        </a>
         @endif
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -38,6 +42,14 @@
                         </div>
                     </a>
                 @elseif(Auth::user()->role_user == 'adminAds')
+                <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="media align-items-center">
+                        <span class="avatar avatar-sm rounded-circle">
+                        <img alt="Image placeholder" src="{{ asset('argon') }}/img/brand/logowe.png">
+                        </span>
+                    </div>
+                </a>
+                @elseif(Auth::user()->role_user == 'dataEntry')
                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
                         <span class="avatar avatar-sm rounded-circle">
@@ -80,6 +92,10 @@
                                 <img src="{{ asset('argon') }}/img/brand/logojprof.png" style="">
                             </a>
                         @elseif(Auth::user()->role_user == 'adminAds')
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('argon') }}/img/brand/WE.png">
+                            </a>
+                            @elseif(Auth::user()->role_user == 'dataEntry')
                             <a href="{{ route('home') }}">
                                 <img src="{{ asset('argon') }}/img/brand/WE.png">
                             </a>
@@ -388,7 +404,97 @@
                         </ul>
                     </div>
                 </li>
-            </ul>    
+            </ul>
+            @elseif(Auth::user()->role_user == 'dataEntry')
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-chart-line" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Programmatics') }}</span>
+                    </a>
+    
+                    <div class="collapse show" id="navbar-examples">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ads')}}">
+                                    {{ __('Ads Deposit') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('ads_slot')}}">
+                                    {{ __('Ads Slot') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('programmatics')}}">
+                                    {{ __('Data Programmatics') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('kurs')}}">
+                                    {{ __('Kurs') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link active" href="#navbar-examples3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fas fa-cogs"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Properties') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-examples3">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('kurs')}}">
+                                    {{ __('Kurs') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('eventCategory')}}">
+                                    {{ __('Kategori Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="picEvent">
+                                    {{ __('PIC Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="statusEvent">
+                                    {{ __('Status Event') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="divisi">
+                                    {{ __('Divisi') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="coreBisnis">
+                                    {{ __('Core Bisnis') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="kategoriBisnis">
+                                    {{ __('Kategori Bisnis') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="productBisnis">
+                                    {{ __('Product Bisnis') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li> --}}
+            </ul>
             @endif
             <!-- Navigation -->
             
