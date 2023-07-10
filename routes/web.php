@@ -34,7 +34,7 @@ use App\Http\Controllers\MasterExpanditureController;
 use App\Http\Controllers\BisnisIncomeController;
 use App\Http\Controllers\BisnisExpanditureController;
 use App\Http\Controllers\KursController;
-use App\Http\Controllers\PredictiveController;
+use App\Http\Controllers\TrafficController;
 
 /*
 |--------------------------------------------------------------------------
@@ -303,6 +303,14 @@ Route::prefix('predictive')->group(function(){
 	Route::get('edit/{id}', [PredictiveController::class, 'edit'])->name('predictive.edit');
 	Route::post('update/{id}', [PredictiveController::class, 'update'])->name('predictive.update');
 	Route::post('delete/{id}', [PredictiveController::class, 'destroy'])->name('predictive.destroy');
+});
+
+Route::prefix('traffic')->group(function(){
+	Route::get('/', [TrafficController::class, 'index'])->name('traffic');
+	Route::post('store', [TrafficController::class, 'store'])->name('traffic.store');
+	Route::get('edit/{id}', [TrafficController::class, 'edit'])->name('traffic.edit');
+	Route::post('update/{id}', [TrafficController::class, 'update'])->name('traffic.update');
+	Route::post('delete/{id}', [TrafficController::class, 'destroy'])->name('traffic.destroy');
 });
 
 Route::get('partner', [PredictiveController::class, 'indexP']);

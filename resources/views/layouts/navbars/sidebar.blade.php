@@ -214,7 +214,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('predictive')}}">
-                        <i class="fas fa-volcano"></i> {{ __('Predictive') }}
+                        <i class="ni ni-map-big"></i> {{ __('Predictive') }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#x">
+                        <i class="ni ni-air-baloon"></i>{{ __('Traffic') }}
                     </a>
                 </li>
                 <li class="nav-item">
