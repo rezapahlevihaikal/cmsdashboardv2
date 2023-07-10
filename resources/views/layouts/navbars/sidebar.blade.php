@@ -218,7 +218,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#x">
+                    <a class="nav-link" href="{{route('traffic')}}">
                         <i class="ni ni-air-baloon"></i>{{ __('Traffic') }}
                     </a>
                 </li>
@@ -418,7 +418,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#x">
+                    <a class="nav-link" href="{{route('traffic')}}">
                         <i class="ni ni-air-baloon"></i>{{ __('Traffic') }}
                     </a>
                 </li>
