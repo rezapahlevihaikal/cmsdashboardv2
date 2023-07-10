@@ -418,6 +418,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#x">
+                        <i class="ni ni-air-baloon"></i>{{ __('Traffic') }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fas fa-chart-line" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Programmatics') }}</span>
