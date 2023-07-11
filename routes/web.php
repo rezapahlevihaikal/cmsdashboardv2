@@ -35,6 +35,7 @@ use App\Http\Controllers\BisnisIncomeController;
 use App\Http\Controllers\BisnisExpanditureController;
 use App\Http\Controllers\KursController;
 use App\Http\Controllers\TrafficController;
+use App\Http\Controllers\PredictiveController;
 
 /*
 |--------------------------------------------------------------------------
